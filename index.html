@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Foundation Models for Particle Accelerators introduces SensOFormer, a self-supervised model for heterogeneous accelerator operational data.">
+  <meta name="theme-color" content="#fbf8f4">
+  <meta property="og:title" content="Foundation Models for Particle Accelerators">
+  <meta property="og:description" content="One self-supervised backbone for missing-data imputation, anomaly detection, cavity identification, and fault identification.">
+  <meta property="og:type" content="website">
+  <title>Foundation Models for Particle Accelerators</title>
+  <link rel="stylesheet" href="static/css/site.css">
+  <script defer src="static/js/site.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to content</a>
+  <main>
+    <header class="hero" id="top">
+      <div class="container hero-inner">
+        <p class="venue">NeurIPS 2026</p>
+        <h1>Foundation Models for<br>Particle Accelerators</h1>
+        <p class="dek">Learning reusable representations from heterogeneous operational telemetry across facilities, sensors, and tasks.</p>
+        <p class="authors">
+          <a href="https://mahindrautela.github.io/" target="_blank" rel="noreferrer">Mahindra Singh Rautela</a>
+          <span aria-hidden="true">·</span>
+          Alexander Scheinker
+        </p>
+        <p class="affiliation">Los Alamos National Laboratory</p>
+        <div class="hero-links" aria-label="Project links">
+          <a class="button button-primary" href="paper/foundation-models-for-particle-accelerators.pdf">Paper <span aria-hidden="true">↗</span></a>
+          <a class="button" href="https://openreview.net/forum?id=sdBsI9MA5a" target="_blank" rel="noreferrer">OpenReview <span aria-hidden="true">↗</span></a>
+          <a class="button" href="https://github.com/mahindrautela/sensoformer" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="signal-band" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </header>
+
+    <nav class="page-nav" aria-label="Page sections">
+      <div class="container">
+        <a href="#overview">Overview</a>
+        <a href="#method">SensOFormer</a>
+        <a href="#results">Results</a>
+        <a href="#data">Data</a>
+        <a href="#citation">Citation</a>
+      </div>
+    </nav>
+
+    <section class="container section overview" id="overview">
+      <div class="section-label">Overview</div>
+      <div class="section-content">
+        <p class="lead">Particle accelerators produce vast streams of noisy, incomplete, and asynchronous sensor data. SensOFormer turns that operational history into a shared model that can transfer across facilities and diagnostic tasks.</p>
+        <div class="overview-columns">
+          <p>Unlike fixed-channel time-series models, SensOFormer treats the sensors observed at each time step as a set. A Perceiver-style encoder handles variable sensor availability and ordering, while a latent transformer learns temporal structure without requiring one global channel layout.</p>
+          <p>Masked denoising pretraining exposes the model to realistic point, time, channel, and block failures. The resulting backbone supports zero-shot missing-data reconstruction and lightweight supervised adaptation for anomaly and fault diagnosis.</p>
+        </div>
+        <div class="stat-grid" aria-label="Paper highlights">
+          <div><strong>5</strong><span>accelerator facilities</span></div>
+          <div><strong>21 / 24</strong><span>best imputation settings</span></div>
+          <div><strong>20 / 21</strong><span>early faults detected</span></div>
+          <div><strong>80.54M</strong><span>largest model parameters</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="method">
+      <div class="container">
+        <div class="section-label">SensOFormer</div>
+        <div class="section-content">
+          <div class="section-heading-row">
+            <h2>One backbone, changing sensor sets.</h2>
+            <p>SensOFormer combines set-based channel processing with temporal attention, so the model can learn across facilities with different sensors, sampling structures, and sequence lengths.</p>
+          </div>
+          <figure class="paper-figure architecture-figure">
+            <a href="static/images/sensoformer-architecture.webp" target="_blank" aria-label="Open the full-resolution SensOFormer architecture figure">
+              <img src="static/images/sensoformer-architecture.webp" alt="SensOFormer overview: four masked-denoising strategies, a permutation-invariant set encoder, a latent transformer processor, a permutation-equivariant set decoder, and downstream task heads." width="2400" height="2786">
+            </a>
+            <figcaption>Masked-denoising pretraining and the SensOFormer encoder–processor–decoder architecture. Select the figure to enlarge.</figcaption>
+          </figure>
+          <div class="method-steps">
+            <article>
+              <p class="step-number">01</p>
+              <h3>Corrupt</h3>
+              <p>Sample realistic point-wise, time-wise, channel-wise, or block-wise gaps, then add noise to visible measurements.</p>
+            </article>
+            <article>
+              <p class="step-number">02</p>
+              <h3>Represent</h3>
+              <p>Encode unordered channel observations into a compact latent sequence and model temporal dependencies with a transformer.</p>
+            </article>
+            <article>
+              <p class="step-number">03</p>
+              <h3>Transfer</h3>
+              <p>Reuse the pretrained backbone for reconstruction, binary anomaly detection, and multiclass fault or cavity identification.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="results">
+      <div class="section-label">Results</div>
+      <div class="section-content">
+        <div class="section-heading-row">
+          <h2>Strong transfer across operational tasks.</h2>
+          <p>The same pretrained representation improves reconstruction, matches a specialized early-fault ensemble, and raises fault-identification accuracy while using fewer labels.</p>
+        </div>
+
+        <div class="result-list">
+          <article>
+            <span class="result-value">21 / 24</span>
+            <div><h3>Zero-shot imputation</h3><p>The largest SensOFormer variant records the lowest error in 21 of 24 dataset–mask combinations; the second-largest wins the remaining three.</p></div>
+          </article>
+          <article>
+            <span class="result-value">95.2%</span>
+            <div><h3>Early-fault success</h3><p>SensOFormer-XTi passes 20 of 21 induced HVCM early-fault tests, matching the hierarchical voting ensemble.</p></div>
+          </article>
+          <article>
+            <span class="result-value">84.01%</span>
+            <div><h3>Fault identification</h3><p>Accuracy rises from the prior 74.10% benchmark to 84.01% on CEBAF superconducting RF fault types.</p></div>
+          </article>
+        </div>
+
+        <div class="figure-grid">
+          <figure class="paper-figure">
+            <img src="static/images/data-efficiency.webp" loading="lazy" alt="Fault-identification accuracy increases as the labeled training-data fraction grows, exceeding the 74.10 percent benchmark at 25 percent of the labels." width="1800" height="1333">
+            <figcaption><strong>Label efficiency.</strong> Pretraining exceeds the prior fault-identification benchmark with only 25% of labeled training data.</figcaption>
+          </figure>
+          <figure class="paper-figure">
+            <img src="static/images/scaling-law.webp" loading="lazy" alt="Scaling-law loss contours show lower validation reconstruction loss with larger models and more pretraining data." width="1800" height="1286">
+            <figcaption><strong>Scaling behavior.</strong> Reconstruction loss decreases with model capacity and pretraining data; the best point is at the largest evaluated scale.</figcaption>
+          </figure>
+        </div>
+
+        <div class="task-grid">
+          <article><span>Zero-shot</span><h3>Missing-data imputation</h3><p>Recover isolated measurements, missing intervals, unavailable channels, and structured gaps.</p></article>
+          <article><span>Binary</span><h3>Anomaly detection</h3><p>Identify faulty HVCM power-electronics behavior from multichannel waveforms.</p></article>
+          <article><span>Multiclass</span><h3>Cavity identification</h3><p>Locate the first faulting cavity in tightly coupled CEBAF cryomodules.</p></article>
+          <article><span>Multiclass</span><h3>Fault identification</h3><p>Distinguish fault types with a frozen backbone and lightweight task head.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="data">
+      <div class="container">
+        <div class="section-label">Data</div>
+        <div class="section-content">
+          <div class="section-heading-row">
+            <h2>A multi-facility telemetry corpus.</h2>
+            <p>Pretraining spans operational measurements from five major accelerator facilities and sensor formats ranging from short RF fault events to long beam-loss sequences.</p>
+          </div>
+          <div class="facility-list">
+            <article><div><span>LANL</span><h3>LANSCE</h3></div><p>Operational telemetry<br><b>1–1,754 channels</b></p></article>
+            <article><div><span>CERN</span><h3>LHC</h3></div><p>Beam-loss monitoring<br><b>66 channels</b></p></article>
+            <article><div><span>ORNL</span><h3>SNS</h3></div><p>HVCM waveforms<br><b>12 channels</b></p></article>
+            <article><div><span>SLAC</span><h3>LCLS</h3></div><p>RF station signals<br><b>9 channels</b></p></article>
+            <article><div><span>JLab</span><h3>CEBAF</h3></div><p>Superconducting RF events<br><b>192 time steps</b></p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="citation">
+      <div class="section-label">Citation</div>
+      <div class="section-content">
+        <div class="citation-heading">
+          <h2>Cite this work</h2>
+          <button class="copy-button" id="copyCitation" type="button">Copy BibTeX</button>
+        </div>
+        <pre id="bibtex"><code>@inproceedings{rautela2026foundation,
+  title     = {Foundation Models for Particle Accelerators},
+  author    = {Rautela, Mahindra Singh and Scheinker, Alexander},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Foundation Models for Particle Accelerators</p>
+      <p>Los Alamos National Laboratory · 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
