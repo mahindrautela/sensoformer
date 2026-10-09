@@ -55,12 +55,6 @@
           <p>Unlike fixed-channel time-series models, SensOFormer treats the sensors observed at each time step as a set. A Perceiver-style encoder handles variable sensor availability and ordering, while a latent transformer learns temporal structure without requiring one global channel layout.</p>
           <p>Masked denoising pretraining exposes the model to realistic point, time, channel, and block failures. The resulting backbone supports zero-shot missing-data reconstruction and lightweight supervised adaptation for anomaly and fault diagnosis.</p>
         </div>
-        <div class="stat-grid" aria-label="Paper highlights">
-          <div><strong>5</strong><span>accelerator facilities</span></div>
-          <div><strong>21 / 24</strong><span>best imputation settings</span></div>
-          <div><strong>20 / 21</strong><span>early faults detected</span></div>
-          <div><strong>80.54M</strong><span>largest model parameters</span></div>
-        </div>
       </div>
     </section>
 
@@ -105,21 +99,6 @@
         <div class="section-heading-row">
           <h2>Strong transfer across operational tasks.</h2>
           <p>The same pretrained representation improves reconstruction, matches a specialized early-fault ensemble, and raises fault-identification accuracy while using fewer labels.</p>
-        </div>
-
-        <div class="result-list">
-          <article>
-            <span class="result-value">21 / 24</span>
-            <div><h3>Zero-shot imputation</h3><p>The largest SensOFormer variant records the lowest error in 21 of 24 dataset–mask combinations; the second-largest wins the remaining three.</p></div>
-          </article>
-          <article>
-            <span class="result-value">95.2%</span>
-            <div><h3>Early-fault success</h3><p>SensOFormer-XTi passes 20 of 21 induced HVCM early-fault tests, matching the hierarchical voting ensemble.</p></div>
-          </article>
-          <article>
-            <span class="result-value">84.01%</span>
-            <div><h3>Fault identification</h3><p>Accuracy rises from the prior 74.10% benchmark to 84.01% on CEBAF superconducting RF fault types.</p></div>
-          </article>
         </div>
 
         <div class="figure-grid">
