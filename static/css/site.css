@@ -234,9 +234,20 @@ h1 em {
   font-weight: 400;
 }
 
+.hero-claim {
+  max-width: 620px;
+  margin-top: 22px;
+  color: var(--coral);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
 .hero-dek {
   max-width: 660px;
-  margin-top: 30px;
+  margin-top: 16px;
   color: var(--ink-2);
   font-size: clamp(1.08rem, 1.5vw, 1.33rem);
   line-height: 1.5;
@@ -1171,6 +1182,163 @@ h1 em {
   line-height: 1;
 }
 
+/* Scaling */
+
+.section-scaling {
+  background: var(--wash-blue);
+  border-block: 1px solid var(--line);
+}
+
+.scaling-layout {
+  display: grid;
+  grid-template-columns: minmax(380px, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(38px, 6vw, 82px);
+}
+
+.scaling-lead {
+  color: var(--ink-2);
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  line-height: 1.55;
+}
+
+.equation-card {
+  margin-top: 30px;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.equation-row {
+  padding: 24px 25px 26px;
+}
+
+.equation-row + .equation-row {
+  border-top: 1px solid var(--line);
+}
+
+.equation-label {
+  margin-bottom: 15px;
+  color: var(--teal-dark);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.equation {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.13rem, 1.6vw, 1.5rem);
+  line-height: 1.7;
+}
+
+.equation-fitted {
+  font-size: clamp(0.95rem, 1.12vw, 1.08rem);
+}
+
+.equation var {
+  font-family: inherit;
+}
+
+.equation sup,
+.equation sub,
+.equation-note sup,
+.equation-note sub {
+  line-height: 0;
+}
+
+.fraction {
+  display: inline-grid;
+  grid-template-rows: auto auto;
+  min-width: 2.25em;
+  margin-inline: 0.14em;
+  vertical-align: middle;
+  line-height: 1.12;
+  text-align: center;
+}
+
+.fraction > span:first-child {
+  padding: 0 0.2em 0.12em;
+  border-bottom: 1px solid currentColor;
+}
+
+.fraction > span:last-child {
+  padding-top: 0.1em;
+}
+
+.equation-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.scaling-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 24px;
+  border-block: 1px solid var(--line-dark);
+}
+
+.scaling-summary article {
+  padding: 19px 16px 20px 0;
+}
+
+.scaling-summary article + article {
+  padding-right: 0;
+  padding-left: 19px;
+  border-left: 1px solid var(--line);
+}
+
+.scaling-summary strong {
+  display: block;
+  color: var(--teal-dark);
+  font-family: var(--serif);
+  font-size: 1.42rem;
+  font-weight: 400;
+}
+
+.scaling-summary span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.scaling-caveat {
+  margin-top: 25px;
+  padding-left: 14px;
+  color: var(--muted);
+  border-left: 2px solid var(--coral);
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+
+.scaling-caveat strong {
+  color: var(--ink-2);
+}
+
+.scaling-figure {
+  box-shadow: 0 15px 50px rgba(18, 50, 58, 0.07);
+}
+
+.scaling-figure .figure-image-link {
+  display: grid;
+  place-items: center;
+  min-height: 380px;
+  padding: 18px;
+}
+
+.scaling-figure .figure-image-link img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Data */
 
 .section-data {
@@ -1792,6 +1960,14 @@ pre {
     gap: 27px;
   }
 
+  .scaling-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .scaling-copy {
+    max-width: 720px;
+  }
+
   .editorial-grid {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -1899,8 +2075,13 @@ pre {
     font-size: clamp(2.75rem, 13.5vw, 3.75rem);
   }
 
+  .hero-claim {
+    margin-top: 17px;
+    font-size: 0.65rem;
+  }
+
   .hero-dek {
-    margin-top: 23px;
+    margin-top: 14px;
     font-size: 1rem;
   }
 
@@ -2031,6 +2212,29 @@ pre {
   .method-details article + article {
     border-top: 1px solid var(--line);
     border-left: 0;
+  }
+
+  .equation-row {
+    padding: 20px 18px 22px;
+  }
+
+  .equation,
+  .equation-fitted {
+    font-size: 1rem;
+  }
+
+  .scaling-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .scaling-summary article + article {
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .scaling-figure .figure-image-link {
+    min-height: 0;
   }
 
   .facility-grid {
