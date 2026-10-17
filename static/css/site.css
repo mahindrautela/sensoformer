@@ -107,8 +107,8 @@ h2 {
 }
 
 h2 {
-  font-size: clamp(2.55rem, 5vw, 5rem);
-  line-height: 0.98;
+  font-size: clamp(2.05rem, 3.15vw, 3.3rem);
+  line-height: 1.08;
 }
 
 h3 {
@@ -661,8 +661,8 @@ h1 em {
   margin-top: 36px;
   color: var(--ink-2);
   font-family: var(--serif);
-  font-size: clamp(1.35rem, 2.5vw, 2.05rem);
-  line-height: 1.45;
+  font-size: clamp(1.16rem, 1.6vw, 1.55rem);
+  line-height: 1.5;
 }
 
 /* Glance */
@@ -673,14 +673,16 @@ h1 em {
 
 .glance-flow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr) 44px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr) 34px minmax(0, 1fr);
   align-items: stretch;
+  max-width: 1080px;
+  margin-inline: auto;
 }
 
 .glance-card {
   position: relative;
-  min-height: 420px;
-  padding: clamp(28px, 3.3vw, 45px);
+  min-height: 330px;
+  padding: clamp(24px, 2.6vw, 34px);
   background: #f7f6f1;
   border: 1px solid var(--line);
 }
@@ -697,8 +699,7 @@ h1 em {
   color: #dbe9e6;
   background: var(--ink);
   border-color: var(--ink);
-  box-shadow: var(--shadow);
-  transform: translateY(-18px);
+  box-shadow: 0 12px 32px rgba(18, 50, 58, 0.09);
 }
 
 .glance-card.featured h3,
@@ -722,7 +723,7 @@ h1 em {
 .glance-card h3 {
   margin-top: 13px;
   font-family: var(--serif);
-  font-size: clamp(1.45rem, 2.1vw, 2rem);
+  font-size: clamp(1.25rem, 1.55vw, 1.55rem);
   font-weight: 400;
   line-height: 1.18;
 }
@@ -735,9 +736,9 @@ h1 em {
 
 .glance-icon {
   position: relative;
-  width: 112px;
-  height: 88px;
-  margin-bottom: 30px;
+  width: 94px;
+  height: 68px;
+  margin-bottom: 23px;
 }
 
 .glance-icon-problem span {
@@ -991,7 +992,7 @@ h1 em {
 .method-sequence h3 {
   margin-top: 23px;
   font-family: var(--serif);
-  font-size: 1.45rem;
+  font-size: 1.3rem;
   font-weight: 400;
 }
 
@@ -1120,7 +1121,7 @@ h1 em {
 }
 
 .architecture-figure {
-  max-width: 1120px;
+  max-width: 680px;
   margin-inline: auto;
   box-shadow: 0 15px 50px rgba(18, 50, 58, 0.07);
 }
@@ -1186,7 +1187,7 @@ h1 em {
 }
 
 .architecture-figure .figure-image-link {
-  padding: 26px;
+  padding: 20px;
 }
 
 .figure-image-link img {
@@ -1345,7 +1346,7 @@ h1 em {
   max-width: 680px;
   margin-top: 20px;
   font-family: var(--serif);
-  font-size: clamp(2rem, 3.6vw, 3.6rem);
+  font-size: clamp(1.65rem, 2.3vw, 2.4rem);
   font-weight: 400;
   line-height: 1.08;
 }
@@ -1592,7 +1593,7 @@ h1 em {
 .facility-heading h3 {
   margin-top: 5px;
   font-family: var(--serif);
-  font-size: 2.5rem;
+  font-size: 2.1rem;
   font-weight: 400;
   line-height: 1;
 }
@@ -1726,7 +1727,7 @@ h1 em {
 
 .takeaway-list h3 {
   font-family: var(--serif);
-  font-size: 1.45rem;
+  font-size: 1.3rem;
   font-weight: 400;
 }
 
@@ -1770,7 +1771,7 @@ h1 em {
 .resource-card h3 {
   margin-top: 25px;
   font-family: var(--serif);
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
@@ -1844,7 +1845,7 @@ h1 em {
 .citation-heading h3 {
   color: var(--white);
   font-family: var(--serif);
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
@@ -2300,7 +2301,8 @@ pre {
   }
 
   h2 {
-    font-size: clamp(2.55rem, 13vw, 3.65rem);
+    font-size: clamp(2rem, 8.5vw, 2.65rem);
+    line-height: 1.08;
   }
 
   .section {
@@ -2383,7 +2385,8 @@ pre {
   }
 
   .glance-card {
-    padding: 28px;
+    min-height: 0;
+    padding: 25px;
   }
 
   .glance-icon {
