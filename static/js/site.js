@@ -1,28 +1,138 @@
-const copyButton = document.querySelector('#copyCitation');
-const citation = document.querySelector('#bibtex code');
+(() => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-copyButton?.addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(citation.textContent.trim());
-    copyButton.textContent = 'Copied';
-    window.setTimeout(() => { copyButton.textContent = 'Copy BibTeX'; }, 1800);
-  } catch {
-    copyButton.textContent = 'Select BibTeX below';
-  }
-});
+  const copyButton = document.querySelector('#copyCitation');
+  const citation = document.querySelector('#bibtex code');
+  const copyStatus = document.querySelector('#copyStatus');
+  let copyResetTimer;
 
-const navLinks = [...document.querySelectorAll('.page-nav a')];
-const sections = navLinks
-  .map((link) => document.querySelector(link.getAttribute('href')))
-  .filter(Boolean);
+  const copyWithFallback = async (text) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.setAttribute('readonly', '');
+    textArea.style.position = 'fixed';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.select();
+    const copied = document.execCommand('copy');
+    textArea.remove();
+    if (!copied) throw new Error('Copy command failed');
+  };
+
+  copyButton?.addEventListener('click', async () => {
+    const label = copyButton.querySelector('span');
+    window.clearTimeout(copyResetTimer);
+
+    try {
+      await copyWithFallback(citation.textContent.trim());
+      label.textContent = 'Copied';
+      copyStatus.textContent = 'BibTeX copied to the clipboard.';
+    } catch {
+      label.textContent = 'Copy unavailable';
+      copyStatus.textContent = 'Select the BibTeX text and copy it manually.';
+    }
+
+    copyResetTimer = window.setTimeout(() => {
+      label.textContent = 'Copy BibTeX';
+      copyStatus.textContent = '';
+    }, 2800);
+  });
+
+  const navLinks = [...document.querySelectorAll('.nav-links a')];
+  const observedSections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActiveLink = (id) => {
     navLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      const active = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visible[0]) setActiveLink(visible[0].target.id);
+    }, {
+      rootMargin: '-20% 0px -62% 0px',
+      threshold: [0, 0.15, 0.4]
+    });
+
+    observedSections.forEach((section) => sectionObserver.observe(section));
+  }
+
+  const progressBar = document.querySelector('.reading-progress span');
+  let progressFrame = null;
+
+  const updateProgress = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+    progressBar.style.transform = `scaleX(${progress})`;
+    progressFrame = null;
+  };
+
+  const queueProgressUpdate = () => {
+    if (progressFrame !== null) return;
+    progressFrame = window.requestAnimationFrame(updateProgress);
+  };
+
+  window.addEventListener('scroll', queueProgressUpdate, { passive: true });
+  window.addEventListener('resize', queueProgressUpdate, { passive: true });
+  updateProgress();
+
+  const lightbox = document.querySelector('#figureLightbox');
+  const lightboxImage = lightbox?.querySelector('.lightbox-stage img');
+  const lightboxTitle = lightbox?.querySelector('#lightboxTitle');
+  const lightboxClose = lightbox?.querySelector('.lightbox-close');
+  const lightboxLinks = [...document.querySelectorAll('[data-lightbox]')];
+  let lightboxTrigger = null;
+
+  const closeLightbox = () => {
+    if (!lightbox?.open) return;
+    lightbox.close();
+  };
+
+  if (lightbox && typeof lightbox.showModal === 'function') {
+    lightboxLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        lightboxTrigger = link;
+        const title = link.dataset.title || 'Research figure';
+        lightboxImage.src = link.href;
+        lightboxImage.alt = title;
+        lightboxTitle.textContent = title;
+        document.body.classList.add('lightbox-open');
+        lightbox.showModal();
+        lightboxClose.focus({ preventScroll: true });
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    lightbox.addEventListener('close', () => {
+      document.body.classList.remove('lightbox-open');
+      lightboxImage.removeAttribute('src');
+      lightboxTrigger?.focus({ preventScroll: true });
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (reducedMotion || !link.closest('.nav-links')) return;
+      link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   });
-}, { rootMargin: '-25% 0px -65% 0px' });
-
-sections.forEach((section) => observer.observe(section));
+})();

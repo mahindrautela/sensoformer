@@ -2,6 +2,8 @@
 
 Static project page for **Foundation Models for Particle Accelerators** by Mahindra Singh Rautela and Alexander Scheinker (NeurIPS 2026).
 
+This repository contains the project website and an earlier ICML 2026 workshop-version PDF. It does not currently publish the SensOFormer model implementation, pretrained weights, or the multi-facility datasets.
+
 ## Local preview
 
 ```bash
