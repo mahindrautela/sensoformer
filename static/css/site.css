@@ -14,6 +14,8 @@
   --teal: #087d79;
   --teal-dark: #075c5c;
   --teal-soft: #d8ece7;
+  --acceptance-green: #247847;
+  --acceptance-green-soft: #e4f0e7;
   --coral: #c9694d;
   --coral-soft: #f1ddd4;
   --violet: #715e8a;
@@ -198,27 +200,33 @@ h3 {
   gap: 10px;
   margin-bottom: clamp(34px, 6vh, 68px);
   padding: 8px 13px;
-  color: var(--teal-dark);
-  background: rgba(255, 255, 255, 0.56);
-  border: 1px solid rgba(7, 92, 92, 0.25);
+  color: var(--ink-2);
+  background: var(--acceptance-green-soft);
+  border: 1px solid rgba(36, 120, 71, 0.3);
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
+.venue-line strong {
+  color: var(--acceptance-green);
+  font-size: 1.08em;
+  font-weight: 800;
+}
+
 .status-dot {
   width: 7px;
   height: 7px;
-  background: var(--teal);
+  background: var(--acceptance-green);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(8, 125, 121, 0.11);
+  box-shadow: 0 0 0 4px rgba(36, 120, 71, 0.12);
 }
 
 h1 {
   max-width: 720px;
-  font-size: clamp(3.125rem, calc(5.1vw - 2px), 5.375rem);
+  font-size: clamp(calc(3.125rem - 2px), calc(5.1vw - 4px), calc(5.375rem - 2px));
   line-height: 0.92;
 }
 
@@ -337,7 +345,7 @@ h1 em {
   max-width: 650px;
   margin-top: 13px;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: calc(0.75rem + 2px);
   line-height: 1.5;
 }
 
@@ -372,7 +380,7 @@ h1 em {
   padding: 10px 12px 2px;
   color: var(--muted);
   font-family: var(--serif);
-  font-size: 0.86rem;
+  font-size: calc(0.86rem + 2px);
   font-style: italic;
   text-align: center;
 }
@@ -654,7 +662,7 @@ h1 em {
 .rail-note {
   color: var(--muted);
   font-family: var(--serif);
-  font-size: 0.9rem;
+  font-size: calc(0.9rem + 2px);
   font-style: italic;
   line-height: 1.6;
 }
@@ -1117,7 +1125,7 @@ h1 em {
   background: var(--paper);
   border-top: 1px solid var(--line);
   font-family: var(--serif);
-  font-size: 0.86rem;
+  font-size: calc(0.86rem + 2px);
   font-style: italic;
 }
 
@@ -1182,7 +1190,7 @@ h1 em {
 .application-list p {
   margin-top: 7px;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: calc(0.72rem + 2px);
   line-height: 1.5;
 }
 
@@ -1203,7 +1211,7 @@ h1 em {
 
 .facility-list span {
   color: var(--muted);
-  font-size: 0.74rem;
+  font-size: calc(0.74rem + 2px);
 }
 
 @keyframes target-pulse {
@@ -1307,7 +1315,7 @@ h1 em {
 .glance-card > p:last-child {
   margin-top: 19px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: calc(0.9rem + 2px);
 }
 
 .glance-icon {
@@ -1446,7 +1454,7 @@ h1 em {
 .challenge-list p {
   margin-top: 8px;
   color: var(--muted);
-  font-size: 0.87rem;
+  font-size: calc(0.87rem + 2px);
 }
 
 /* Method */
@@ -1488,7 +1496,7 @@ h1 em {
 .method-sequence p {
   margin-top: 10px;
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: calc(0.84rem + 2px);
 }
 
 .method-glyph {
@@ -1713,7 +1721,7 @@ h1 em {
   color: var(--muted);
   background: #f7f7f3;
   border-top: 1px solid var(--line);
-  font-size: 0.8rem;
+  font-size: calc(0.8rem + 2px);
   line-height: 1.55;
 }
 
@@ -1736,7 +1744,7 @@ h1 em {
 .method-details p:last-child {
   margin-top: 7px;
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: calc(0.76rem + 2px);
   line-height: 1.5;
 }
 
@@ -1841,7 +1849,7 @@ h1 em {
 .equation-note {
   margin-top: 14px;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: calc(0.72rem + 2px);
   line-height: 1.6;
 }
 
@@ -1874,7 +1882,7 @@ h1 em {
   display: block;
   margin-top: 4px;
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: calc(0.7rem + 2px);
   line-height: 1.5;
 }
 
@@ -1883,7 +1891,7 @@ h1 em {
   padding-left: 14px;
   color: var(--muted);
   border-left: 2px solid var(--coral);
-  font-size: 0.76rem;
+  font-size: calc(0.76rem + 2px);
   line-height: 1.65;
 }
 
@@ -1968,7 +1976,7 @@ h1 em {
   display: block;
   margin-top: 3px;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + 2px);
   line-height: 1.4;
 }
 
@@ -1996,7 +2004,7 @@ h1 em {
 
 .recipe-list p {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: calc(0.78rem + 2px);
   line-height: 1.55;
 }
 
@@ -2031,7 +2039,7 @@ h1 em {
   display: block;
   margin-top: 7px;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: calc(0.72rem + 2px);
   line-height: 1.45;
 }
 
@@ -2042,7 +2050,7 @@ h1 em {
   padding-left: 14px;
   color: var(--muted);
   border-left: 2px solid var(--coral);
-  font-size: 0.76rem;
+  font-size: calc(0.76rem + 2px);
   line-height: 1.65;
 }
 
@@ -2085,7 +2093,7 @@ h1 em {
 
 .task-description {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: calc(0.82rem + 2px);
   line-height: 1.65;
 }
 
@@ -2107,7 +2115,7 @@ h1 em {
   display: block;
   margin-top: 7px;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + 2px);
   line-height: 1.45;
 }
 
@@ -2144,7 +2152,7 @@ h1 em {
 .footer-main > div:first-child p {
   max-width: 450px;
   margin-top: 10px;
-  font-size: 0.78rem;
+  font-size: calc(0.78rem + 2px);
 }
 
 .footer-links {
@@ -2171,7 +2179,7 @@ h1 em {
   gap: 30px;
   padding-block: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.13);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + 2px);
 }
 
 /* Lightbox */
@@ -2273,7 +2281,7 @@ h1 em {
   }
 
   h1 {
-    font-size: clamp(2.975rem, calc(5.8vw - 2px), 4.675rem);
+    font-size: clamp(calc(2.975rem - 2px), calc(5.8vw - 4px), calc(4.675rem - 2px));
   }
 
   .hero-figure {
@@ -2362,7 +2370,7 @@ h1 em {
 
   h1 {
     max-width: 690px;
-    font-size: clamp(3.075rem, calc(8vw - 2px), 4.375rem);
+    font-size: clamp(calc(3.075rem - 2px), calc(8vw - 4px), calc(4.375rem - 2px));
   }
 
   .hero-figure {
@@ -2554,11 +2562,11 @@ h1 em {
 
   .venue-line {
     margin-bottom: 34px;
-    font-size: 0.62rem;
+    font-size: 0.72rem;
   }
 
   h1 {
-    font-size: clamp(2.625rem, calc(13.5vw - 2px), 3.625rem);
+    font-size: clamp(calc(2.625rem - 2px), calc(13.5vw - 4px), calc(3.625rem - 2px));
   }
 
   .hero-claim {
@@ -2598,7 +2606,7 @@ h1 em {
   }
 
   .resource-qualifier {
-    font-size: 0.7rem;
+    font-size: calc(0.7rem + 2px);
   }
 
   .hero-figure {
@@ -2609,7 +2617,7 @@ h1 em {
 
   .hero-figure figcaption {
     padding-inline: 8px;
-    font-size: 0.72rem;
+    font-size: calc(0.72rem + 2px);
   }
 
   .nav-links {
@@ -2645,7 +2653,7 @@ h1 em {
 
   .accelerator-figure figcaption {
     padding: 15px 18px 17px;
-    font-size: 0.78rem;
+    font-size: calc(0.78rem + 2px);
   }
 
   .accelerator-context-grid {
