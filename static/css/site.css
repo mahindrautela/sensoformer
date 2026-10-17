@@ -980,17 +980,24 @@ h1 em {
   animation: target-pulse 1.6s ease-in-out infinite;
 }
 
-.particle-bunch {
-  fill: var(--coral);
+.smiley-particle {
   filter: url(#beamGlow);
 }
 
-.particle-bunch .bunch-tail {
+.smiley-particle .particle-body {
+  stroke: rgba(116, 45, 35, 0.72);
+  stroke-width: 1;
+}
+
+.smiley-particle .particle-eye {
+  fill: #6f3028;
+}
+
+.smiley-particle .particle-smile {
   fill: none;
-  stroke: var(--coral);
+  stroke: #6f3028;
   stroke-linecap: round;
-  stroke-width: 2;
-  opacity: 0.3;
+  stroke-width: 1.15;
 }
 
 .instrument-bus {
