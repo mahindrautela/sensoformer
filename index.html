@@ -407,32 +407,40 @@
       <div class="container">
         <div class="section-intro section-intro-wide">
           <p class="eyebrow">Research at a glance</p>
-          <h2 id="glance-title">From fragmented telemetry to a shared operational representation.</h2>
+          <h2 id="glance-title">From specialist models to one reusable accelerator representation.</h2>
         </div>
 
         <div class="glance-flow">
           <article class="glance-card">
             <div class="glance-index">01</div>
-            <div class="glance-icon glance-icon-problem" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-            <p class="card-label">Problem</p>
-            <h3>Every facility speaks a different sensor language.</h3>
-            <p>Channel sets, sample rates, sequence lengths, physical units, and operating conditions vary across accelerator subsystems and acquisitions.</p>
-          </article>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <article class="glance-card featured">
-            <div class="glance-index">02</div>
-            <div class="glance-icon glance-icon-model" aria-hidden="true"><span></span><span></span><span></span></div>
-            <p class="card-label">Idea</p>
-            <h3>Model channels as a set, then learn through time.</h3>
-            <p>A Perceiver-style encoder maps variable sensor sets into a shared latent sequence; a transformer captures temporal dependencies.</p>
+            <div class="glance-icon glance-icon-specialists" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <p class="card-label">Motivation</p>
+            <h3>Prior accelerator ML is largely specialist.</h3>
+            <p>Successful models target individual facilities and tasks. Yet accelerators reuse related RF, magnet, vacuum, timing, diagnostic, and control systems—an opportunity to learn once and transfer.</p>
           </article>
           <div class="flow-arrow" aria-hidden="true">→</div>
           <article class="glance-card">
+            <div class="glance-index">02</div>
+            <div class="glance-icon glance-icon-problem" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <p class="card-label">Data challenge</p>
+            <h3>Operational telemetry has no single fixed schema.</h3>
+            <p>Sensor sets and ordering, sampling rates, window lengths, physical units, noise, and operating conditions vary across facilities, subsystems, and acquisitions.</p>
+          </article>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <article class="glance-card featured">
             <div class="glance-index">03</div>
+            <div class="glance-icon glance-icon-model" aria-hidden="true"><span></span><span></span><span></span></div>
+            <p class="card-label">Shared backbone</p>
+            <h3>Pretrain once across sensors, facilities, and time.</h3>
+            <p>SensOFormer encodes channels as a set, models their temporal context, and learns by reconstructing clean values from masked, noisy telemetry.</p>
+          </article>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <article class="glance-card">
+            <div class="glance-index">04</div>
             <div class="glance-icon glance-icon-impact" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             <p class="card-label">Evidence</p>
-            <h3>Reuse the backbone across four operational tasks.</h3>
-            <p>The pretrained representation supports zero-shot reconstruction and lightweight supervised adaptation for accelerator diagnostics.</p>
+            <h3>One representation transfers to four operational tasks.</h3>
+            <p>Across five facilities, SensOFormer leads 21 of 24 zero-shot imputation settings, passes 20 of 21 early-fault tests, and reaches 84.80% / 84.01% cavity / fault accuracy.</p>
           </article>
         </div>
       </div>
