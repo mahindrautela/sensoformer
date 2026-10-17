@@ -328,18 +328,24 @@
       <div class="container">
         <div class="section-intro split-intro">
           <div><p class="eyebrow">Multi-facility corpus</p><h2 id="data-title">Five facilities.<br>Distinct operational regimes.</h2></div>
-          <p>The benchmark varies along separate axes: number of examples, time steps per example, and sensors per time step. Keeping those quantities distinct makes the heterogeneity—and the modeling problem—clear.</p>
+          <p>Five corpora span 1–1,754 channels, 192–542,061 time steps, and both reconstruction and diagnostic tasks.</p>
         </div>
 
-        <div class="facility-grid">
-          <article class="facility-card facility-featured"><div class="facility-heading"><span>LANL</span><h3>LANSCE</h3><p>Operational telemetry</p></div><dl><div><dt>Examples</dt><dd>4,250</dd></div><div><dt>Time steps</dt><dd>10,000</dd></div><div><dt>Channels</dt><dd>1–1,754</dd></div></dl><p class="facility-note">2019–2024 corpus; a separate 2025 shift set contains 17 examples with 1–769 channels.</p><span class="task-tag">Missing-data imputation</span></article>
-          <article class="facility-card"><div class="facility-heading"><span>CERN</span><h3>LHC</h3><p>Beam-loss monitoring</p></div><dl><div><dt>Sequences</dt><dd>2</dd></div><div><dt>Time steps</dt><dd>542,061 / 524,430</dd></div><div><dt>Channels</dt><dd>66</dd></div></dl><p class="facility-note">Long continuous beam-loss sequences from the 2017 and 2018 runs.</p><span class="task-tag">Missing-data imputation</span></article>
-          <article class="facility-card"><div class="facility-heading"><span>ORNL</span><h3>SNS</h3><p>HVCM waveforms</p></div><dl><div><dt>Labeled samples</dt><dd>10,000</dd></div><div><dt>Time steps</dt><dd>3,753</dd></div><div><dt>Channels</dt><dd>12</dd></div></dl><p class="facility-note">Power-electronics signals paired with 21 induced early-fault evaluation files.</p><span class="task-tag">Imputation · anomaly detection</span></article>
-          <article class="facility-card"><div class="facility-heading"><span>SLAC</span><h3>LCLS</h3><p>RF station signals</p></div><dl><div><dt>Records</dt><dd>9,841</dd></div><div><dt>Time steps</dt><dd>1,066–2,196</dd></div><div><dt>Channels</dt><dd>9</dd></div></dl><p class="facility-note">Amplitude, phase, and beam measurements collected in 2020 and 2024.</p><span class="task-tag">Missing-data imputation</span></article>
-          <article class="facility-card"><div class="facility-heading"><span>JLab</span><h3>CEBAF</h3><p>Superconducting RF events</p></div><dl><div><dt>Events</dt><dd>2,375</dd></div><div><dt>Time steps</dt><dd>192</dd></div><div><dt>Tensor channels</dt><dd>1</dd></div></dl><p class="facility-note">Short fault-event windows from strongly coupled C100 cryomodule cavities.</p><span class="task-tag">Imputation · cavity · fault ID</span></article>
+        <div class="facility-table-wrap">
+          <table class="facility-table">
+            <caption>Accelerator datasets used by SensOFormer</caption>
+            <thead><tr><th scope="col">Facility</th><th scope="col">Corpus</th><th scope="col">Observed scale</th><th scope="col">Evaluated on</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><span>LANL</span>LANSCE</th><td data-label="Corpus"><strong>Operational telemetry</strong><small>2019–2024 plus a 2025 shift set</small></td><td data-label="Observed scale"><b>4,250</b> examples · <b>10,000</b> steps · <b>1–1,754</b> channels</td><td data-label="Evaluated on">Missing-data imputation</td></tr>
+              <tr><th scope="row"><span>CERN</span>LHC</th><td data-label="Corpus"><strong>Beam-loss monitoring</strong><small>2017 and 2018 runs</small></td><td data-label="Observed scale"><b>2</b> sequences · <b>542,061 / 524,430</b> steps · <b>66</b> channels</td><td data-label="Evaluated on">Missing-data imputation</td></tr>
+              <tr><th scope="row"><span>ORNL</span>SNS</th><td data-label="Corpus"><strong>HVCM waveforms</strong><small>Power-electronics signals</small></td><td data-label="Observed scale"><b>10,000</b> labeled samples · <b>3,753</b> steps · <b>12</b> channels</td><td data-label="Evaluated on">Imputation · anomaly detection</td></tr>
+              <tr><th scope="row"><span>SLAC</span>LCLS</th><td data-label="Corpus"><strong>RF station signals</strong><small>Amplitude, phase, and beam data</small></td><td data-label="Observed scale"><b>9,841</b> records · <b>1,066–2,196</b> steps · <b>9</b> channels</td><td data-label="Evaluated on">Missing-data imputation</td></tr>
+              <tr><th scope="row"><span>JLab</span>CEBAF</th><td data-label="Corpus"><strong>Superconducting RF events</strong><small>C100 cryomodule cavities</small></td><td data-label="Observed scale"><b>2,375</b> events · <b>192</b> steps · <b>1</b> tensor channel</td><td data-label="Evaluated on">Imputation · cavity ID · fault ID</td></tr>
+            </tbody>
+          </table>
         </div>
 
-        <p class="data-footnote"><strong>Tensor notation:</strong> values follow the paper’s <i>(N, T, C)</i> convention: examples, time steps, and channels. Windowed pretraining uses length 1,024 with stride 256; train/validation splitting occurs at the original-sequence level before windowing.</p>
+        <p class="data-footnote"><strong>Scale convention:</strong> examples × time steps × channels. Pretraining uses windows of length 1,024 with stride 256.</p>
       </div>
     </section>
 
