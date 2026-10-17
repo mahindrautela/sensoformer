@@ -61,8 +61,7 @@
           <span class="status-dot" aria-hidden="true"></span>
           <span>Accepted at NeurIPS 2026</span>
         </div>
-        <p class="project-name">SensOFormer</p>
-        <h1>Foundation Models for <em>Particle Accelerators</em></h1>
+        <h1><span>SensOFormer:</span> Foundation Models for <em>Particle Accelerators.</em></h1>
         <p class="hero-dek">A self-supervised transformer learns one shared representation from five accelerators—even as sensor sets change—and transfers it to reconstruction and operational diagnostics.</p>
 
         <div class="author-block">
@@ -174,7 +173,6 @@
         <a href="#glance">Overview</a>
         <a href="#challenge">Challenge</a>
         <a href="#method">Method</a>
-        <a href="#results">Evidence</a>
         <a href="#data">Data</a>
         <a href="#resources">Resources</a>
       </div>
@@ -229,20 +227,6 @@
           <h2 id="challenge-title">Accelerator data are not one tidy multivariate time series.</h2>
           <p class="lead">A channel’s meaning comes from its sensor, physical location, and subsystem—not its column index. The observed channels can change between acquisitions, while each subsystem evolves on its own time scale.</p>
 
-          <div class="comparison-panel" aria-label="Comparison between fixed-channel models and SensOFormer">
-            <div class="comparison-side fixed-side">
-              <p class="comparison-label">Fixed-channel assumption</p>
-              <div class="channel-array" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div>
-              <p>One ordered schema is expected for every example.</p>
-            </div>
-            <div class="comparison-divider" aria-hidden="true"><span>versus</span></div>
-            <div class="comparison-side set-side">
-              <p class="comparison-label">SensOFormer representation</p>
-              <div class="sensor-set" aria-hidden="true"><span>C</span><span>A</span><span>E</span><span class="missing">×</span><span>B</span></div>
-              <p>An unordered, variable-size sensor set is encoded at each time step.</p>
-            </div>
-          </div>
-
           <div class="challenge-list">
             <article><span class="challenge-number">01</span><div><h3>Variable sensor availability</h3><p>Channels range from one to 1,754 in the LANSCE corpus, with no fixed global layout required by the model.</p></div></article>
             <article><span class="challenge-number">02</span><div><h3>Multiple temporal scales</h3><p>Fast RF and beam events coexist with slower vacuum, cooling, and power-supply behavior.</p></div></article>
@@ -284,66 +268,6 @@
           <article><p class="detail-value">32</p><p><strong>memory slots</strong><br>in the set decoder</p></article>
           <article><p class="detail-value">2.38–80.54M</p><p><strong>parameters</strong><br>across five evaluated scales</p></article>
           <article><p class="detail-value">1,024</p><p><strong>time steps</strong><br>per pretraining window</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-results" id="results" aria-labelledby="results-title">
-      <div class="container">
-        <div class="section-intro results-intro">
-          <p class="eyebrow">Experimental evidence</p>
-          <h2 id="results-title">One backbone, evaluated across reconstruction and diagnosis.</h2>
-          <p>The paper tests zero-shot missing-data imputation across all five facilities and adapts the smallest pretrained model to operational diagnostic tasks at SNS and CEBAF.</p>
-        </div>
-
-        <div class="evidence-strip" aria-label="Selected quantitative findings">
-          <article><strong>21 / 24</strong><span>dataset–mask settings where the largest variant has the lowest imputation MAE</span></article>
-          <article><strong>20 / 21</strong><span>induced early-fault tests passed, matching the specialist voting ensemble</span></article>
-          <article><strong>84.01%</strong><span>CEBAF fault-identification accuracy, versus 74.10% for prior LSTM and CNN baselines</span></article>
-        </div>
-
-        <article class="result-story imputation-story">
-          <div class="result-copy">
-            <p class="result-index">01 / Zero-shot reconstruction</p>
-            <h3>Can one pretrained model recover different patterns of missing telemetry?</h3>
-            <p>Across six evaluation sets and mask ratios from 5% to 50%, the 80.54M-parameter SensOFormer-B records the lowest raw-scale MAE in 21 of 24 dataset–mask combinations; the 35.87M S variant is best in the other three.</p>
-            <div class="micro-metrics"><div><strong>6</strong><span>evaluation sets</span></div><div><strong>4</strong><span>mask ratios</span></div><div><strong>5</strong><span>model scales</span></div></div>
-            <p class="evidence-note"><span>Important context</span> Errors are reported in each dataset’s raw, un-normalized scale, so values should be compared across model variants within a dataset—not across facilities. LANSCE-2025 is explicitly a temporal distribution-shift test and is harder than the 2019–2024 held-out set.</p>
-          </div>
-          <div class="mask-bank" aria-label="Four masking patterns used in pretraining">
-            <p class="mask-bank-title">Pretraining mask bank</p>
-            <div class="mask-example"><span>Point-wise</span><div class="mask-grid point-mask" aria-hidden="true"></div></div>
-            <div class="mask-example"><span>Time-wise</span><div class="mask-grid time-mask" aria-hidden="true"></div></div>
-            <div class="mask-example"><span>Channel-wise</span><div class="mask-grid channel-mask" aria-hidden="true"></div></div>
-            <div class="mask-example"><span>Block-wise</span><div class="mask-grid block-mask" aria-hidden="true"></div></div>
-          </div>
-        </article>
-
-        <article class="result-story diagnostics-story">
-          <div class="result-copy">
-            <p class="result-index">02 / Diagnostic transfer</p>
-            <h3>Does the shared representation transfer to labeled operational tasks?</h3>
-            <p>SensOFormer-XTi freezes the pretrained encoder and temporal processor, then learns a compact task head. On SNS early-fault detection it matches the hierarchical voting ensemble; on CEBAF it improves fault-type classification while retaining competitive cavity localization.</p>
-          </div>
-          <div class="diagnostic-grid">
-            <div class="diagnostic-card teal-card"><p class="diagnostic-label">SNS anomaly detection</p><strong>95.2<span>%</span></strong><p>success rate: 20 of 21 induced early-fault tests passed</p><small>Matches the hierarchical voting ensemble; all evaluated models were perfect on the standard 2,000-sample held-out split.</small></div>
-            <div class="diagnostic-card"><p class="diagnostic-label">CEBAF cavity identification</p><strong>84.80<span>%</span></strong><p>test accuracy</p><small>Compared with 84.60% for the strongest prior LSTM and direct-mapping CNN baselines.</small></div>
-            <div class="diagnostic-card violet-card"><p class="diagnostic-label">CEBAF fault identification</p><strong>84.01<span>%</span></strong><p>test accuracy</p><small>Compared with 74.10% for the prior LSTM and direct-mapping CNN baselines.</small></div>
-          </div>
-        </article>
-
-        <div class="figure-pair">
-          <figure class="research-figure result-figure">
-            <div class="figure-topline"><div><span>Figure 01</span><h3>Label-efficient fault identification</h3></div><a class="zoom-link" href="static/images/data-efficiency.webp" data-lightbox data-title="Fault-identification accuracy versus labeled training-data fraction">Enlarge <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a></div>
-            <a class="figure-image-link" href="static/images/data-efficiency.webp" data-lightbox data-title="Fault-identification accuracy versus labeled training-data fraction" aria-label="Open the label-efficiency figure at full resolution"><img src="static/images/data-efficiency.webp" loading="lazy" decoding="async" alt="Fault-identification accuracy rises from about 66 percent with 10 percent of labels to 84.01 percent with all labels; at 25 percent it exceeds the 74.10 percent prior benchmark." width="1800" height="1333"><span class="figure-hover-label" aria-hidden="true">View full resolution</span></a>
-            <figcaption><span>Question</span><p>How many labeled CEBAF fault events are needed? The pretrained representation exceeds the 74.10% prior benchmark using 25% of the labeled training set.</p></figcaption>
-          </figure>
-
-          <figure class="research-figure result-figure">
-            <div class="figure-topline"><div><span>Figure 03</span><h3>Scaling model and data together</h3></div><a class="zoom-link" href="static/images/scaling-law.webp" data-lightbox data-title="SensOFormer scaling-law fitted loss contours">Enlarge <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a></div>
-            <a class="figure-image-link" href="static/images/scaling-law.webp" data-lightbox data-title="SensOFormer scaling-law fitted loss contours" aria-label="Open the scaling-law figure at full resolution"><img src="static/images/scaling-law.webp" loading="lazy" decoding="async" alt="Fitted validation-loss contours across five model sizes and four data sizes show decreasing masked-reconstruction loss toward the largest evaluated model and dataset." width="1800" height="1286"><span class="figure-hover-label" aria-hidden="true">View full resolution</span></a>
-            <figcaption><span>Question</span><p>Does pretraining improve with scale? Within the evaluated grid, loss falls with both capacity and data; the fitted exponents are α = 0.715 and β = 0.374 (fit RMSE 0.0004).</p></figcaption>
-          </figure>
         </div>
       </div>
     </section>
