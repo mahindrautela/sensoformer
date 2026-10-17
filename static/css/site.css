@@ -679,12 +679,42 @@ h1 em {
   border-bottom: 1px solid var(--line);
 }
 
-.accelerator-primer-copy {
-  display: grid;
-  gap: 13px;
+.accelerator-title-intro {
+  max-width: 850px;
 }
 
-.accelerator-primer-copy p {
+.accelerator-scale-note {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(38px, 7vw, 105px);
+  margin-top: clamp(48px, 6vw, 76px);
+  padding-block: clamp(28px, 3.5vw, 42px);
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line);
+}
+
+.accelerator-scale-note .subsection-label {
+  margin-bottom: 11px;
+}
+
+.accelerator-scale-note h3 {
+  max-width: 330px;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.18;
+}
+
+.accelerator-scale-copy {
+  display: grid;
+  gap: 14px;
+  max-width: 790px;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.accelerator-scale-copy p {
   margin: 0;
 }
 
@@ -1089,6 +1119,10 @@ h1 em {
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
   gap: clamp(55px, 8vw, 115px);
   margin-top: clamp(60px, 7vw, 95px);
+}
+
+.accelerator-scale-note + .accelerator-context-grid {
+  margin-top: clamp(50px, 6vw, 76px);
 }
 
 .context-heading {
@@ -2380,6 +2414,15 @@ h1 em {
     gap: 58px;
   }
 
+  .accelerator-scale-note {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .accelerator-scale-note h3 {
+    max-width: 540px;
+  }
+
   .scaling-layout {
     grid-template-columns: 1fr;
   }
@@ -2600,6 +2643,17 @@ h1 em {
 
   .accelerator-context-grid {
     margin-top: 58px;
+  }
+
+  .accelerator-scale-note {
+    margin-top: 42px;
+    padding-block: 25px;
+  }
+
+  .accelerator-scale-copy {
+    gap: 12px;
+    font-size: 0.94rem;
+    line-height: 1.7;
   }
 
   .application-list {
