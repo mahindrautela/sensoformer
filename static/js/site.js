@@ -1,48 +1,6 @@
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const copyButton = document.querySelector('#copyCitation');
-  const citation = document.querySelector('#bibtex code');
-  const copyStatus = document.querySelector('#copyStatus');
-  let copyResetTimer;
-
-  const copyWithFallback = async (text) => {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return;
-    }
-
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.setAttribute('readonly', '');
-    textArea.style.position = 'fixed';
-    textArea.style.opacity = '0';
-    document.body.appendChild(textArea);
-    textArea.select();
-    const copied = document.execCommand('copy');
-    textArea.remove();
-    if (!copied) throw new Error('Copy command failed');
-  };
-
-  copyButton?.addEventListener('click', async () => {
-    const label = copyButton.querySelector('span');
-    window.clearTimeout(copyResetTimer);
-
-    try {
-      await copyWithFallback(citation.textContent.trim());
-      label.textContent = 'Copied';
-      copyStatus.textContent = 'BibTeX copied to the clipboard.';
-    } catch {
-      label.textContent = 'Copy unavailable';
-      copyStatus.textContent = 'Select the BibTeX text and copy it manually.';
-    }
-
-    copyResetTimer = window.setTimeout(() => {
-      label.textContent = 'Copy BibTeX';
-      copyStatus.textContent = '';
-    }, 2800);
-  });
-
   const navLinks = [...document.querySelectorAll('.nav-links a')];
   const observedSections = navLinks
     .map((link) => document.querySelector(link.getAttribute('href')))

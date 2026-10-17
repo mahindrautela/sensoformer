@@ -24,12 +24,6 @@
   <meta name="twitter:description" content="A shared sensor representation for heterogeneous accelerator telemetry and operational diagnostics.">
   <meta name="twitter:image" content="https://mahindrautela.github.io/sensoformer/static/images/social-preview.png">
 
-  <meta name="citation_title" content="Foundation Models for Particle Accelerators">
-  <meta name="citation_author" content="Rautela, Mahindra Singh">
-  <meta name="citation_author" content="Scheinker, Alexander">
-  <meta name="citation_conference_title" content="Advances in Neural Information Processing Systems">
-  <meta name="citation_publication_date" content="2026">
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -175,7 +169,6 @@
         <a href="#challenge">Challenge</a>
         <a href="#method">Method</a>
         <a href="#scaling">Scaling</a>
-        <a href="#data">Data</a>
         <a href="#resources">Resources</a>
       </div>
       <a class="nav-paper" href="paper/foundation-models-for-particle-accelerators.pdf">PDF <span aria-hidden="true">↗</span></a>
@@ -324,31 +317,6 @@
       </div>
     </section>
 
-    <section class="section section-data" id="data" aria-labelledby="data-title">
-      <div class="container">
-        <div class="section-intro split-intro">
-          <div><p class="eyebrow">Multi-facility corpus</p><h2 id="data-title">Five facilities.<br>Distinct operational regimes.</h2></div>
-          <p>Five corpora span 1–1,754 channels, 192–542,061 time steps, and both reconstruction and diagnostic tasks.</p>
-        </div>
-
-        <div class="facility-table-wrap">
-          <table class="facility-table">
-            <caption>Accelerator datasets used by SensOFormer</caption>
-            <thead><tr><th scope="col">Facility</th><th scope="col">Corpus</th><th scope="col">Observed scale</th><th scope="col">Evaluated on</th></tr></thead>
-            <tbody>
-              <tr><th scope="row"><span>LANL</span>LANSCE</th><td data-label="Corpus"><strong>Operational telemetry</strong><small>2019–2024 plus a 2025 shift set</small></td><td data-label="Observed scale"><b>4,250</b> examples · <b>10,000</b> steps · <b>1–1,754</b> channels</td><td data-label="Evaluated on">Missing-data imputation</td></tr>
-              <tr><th scope="row"><span>CERN</span>LHC</th><td data-label="Corpus"><strong>Beam-loss monitoring</strong><small>2017 and 2018 runs</small></td><td data-label="Observed scale"><b>2</b> sequences · <b>542,061 / 524,430</b> steps · <b>66</b> channels</td><td data-label="Evaluated on">Missing-data imputation</td></tr>
-              <tr><th scope="row"><span>ORNL</span>SNS</th><td data-label="Corpus"><strong>HVCM waveforms</strong><small>Power-electronics signals</small></td><td data-label="Observed scale"><b>10,000</b> labeled samples · <b>3,753</b> steps · <b>12</b> channels</td><td data-label="Evaluated on">Imputation · anomaly detection</td></tr>
-              <tr><th scope="row"><span>SLAC</span>LCLS</th><td data-label="Corpus"><strong>RF station signals</strong><small>Amplitude, phase, and beam data</small></td><td data-label="Observed scale"><b>9,841</b> records · <b>1,066–2,196</b> steps · <b>9</b> channels</td><td data-label="Evaluated on">Missing-data imputation</td></tr>
-              <tr><th scope="row"><span>JLab</span>CEBAF</th><td data-label="Corpus"><strong>Superconducting RF events</strong><small>C100 cryomodule cavities</small></td><td data-label="Observed scale"><b>2,375</b> events · <b>192</b> steps · <b>1</b> tensor channel</td><td data-label="Evaluated on">Imputation · cavity ID · fault ID</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="data-footnote"><strong>Scale convention:</strong> examples × time steps × channels. Pretraining uses windows of length 1,024 with stride 256.</p>
-      </div>
-    </section>
-
     <section class="section section-takeaways" aria-labelledby="takeaways-title">
       <div class="container editorial-grid">
         <div class="section-rail"><p class="eyebrow">What the study shows</p></div>
@@ -367,7 +335,7 @@
     <section class="section section-resources" id="resources" aria-labelledby="resources-title">
       <div class="container">
         <div class="section-intro split-intro">
-          <div><p class="eyebrow">Resources + reproducibility</p><h2 id="resources-title">Read, inspect, and cite the work.</h2></div>
+          <div><p class="eyebrow">Resources + reproducibility</p><h2 id="resources-title">Read and inspect the work.</h2></div>
           <p>This repository currently publishes the project website and an earlier workshop-version paper. It does not contain the SensOFormer implementation, pretrained weights, or the multi-facility datasets.</p>
         </div>
 
@@ -377,22 +345,6 @@
           <a class="resource-card" href="https://github.com/mahindrautela/sensoformer" target="_blank" rel="noreferrer"><span class="resource-type">GitHub</span><h3>Website source</h3><p>Static HTML, CSS, JavaScript, figures, and deployment workflow</p><span class="resource-arrow" aria-hidden="true">↗</span></a>
         </div>
 
-        <div class="availability-note" role="note"><span aria-hidden="true">i</span><p><strong>Availability note.</strong> A NeurIPS proceedings PDF, public model implementation, weights, and unified dataset release could not be verified in the supplied repository, so this page does not present them as available resources.</p></div>
-
-        <div class="citation-block" id="citation">
-          <div class="citation-heading">
-            <div><p class="eyebrow">BibTeX</p><h3>Cite the accepted paper</h3><p>Proceedings volume and page numbers are omitted until publication metadata is available.</p></div>
-            <button class="copy-button" id="copyCitation" type="button" aria-describedby="copyStatus"><svg aria-hidden="true" viewBox="0 0 20 20"><rect x="6.5" y="6.5" width="9" height="10" rx="1"/><path d="M13 6.5v-3H4.5v10h2"/></svg><span>Copy BibTeX</span></button>
-          </div>
-          <pre id="bibtex" tabindex="0"><code>@inproceedings{rautela2026foundation,
-  title     = {Foundation Models for Particle Accelerators},
-  author    = {Rautela, Mahindra Singh and Scheinker, Alexander},
-  booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2026},
-  note      = {Accepted at NeurIPS 2026}
-}</code></pre>
-          <p class="copy-status" id="copyStatus" aria-live="polite"></p>
-        </div>
       </div>
     </section>
   </main>
@@ -400,7 +352,7 @@
   <footer class="site-footer">
     <div class="container footer-main">
       <div><a class="footer-mark" href="#top">SensOFormer</a><p>A foundation-model approach to heterogeneous particle-accelerator telemetry.</p></div>
-      <div class="footer-links"><a href="paper/foundation-models-for-particle-accelerators.pdf">Workshop PDF</a><a href="https://openreview.net/forum?id=sdBsI9MA5a" target="_blank" rel="noreferrer">OpenReview</a><a href="https://github.com/mahindrautela/sensoformer" target="_blank" rel="noreferrer">Source</a><a href="#citation">BibTeX</a></div>
+      <div class="footer-links"><a href="paper/foundation-models-for-particle-accelerators.pdf">Workshop PDF</a><a href="https://openreview.net/forum?id=sdBsI9MA5a" target="_blank" rel="noreferrer">OpenReview</a><a href="https://github.com/mahindrautela/sensoformer" target="_blank" rel="noreferrer">Source</a></div>
     </div>
     <div class="container footer-meta"><p>Mahindra Singh Rautela &amp; Alexander Scheinker · Los Alamos National Laboratory</p><p>NeurIPS 2026 · Website designed and built with Codex</p></div>
   </footer>
