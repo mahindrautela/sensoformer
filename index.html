@@ -169,7 +169,8 @@
         <a href="#challenge">Challenge</a>
         <a href="#method">Method</a>
         <a href="#scaling">Scaling</a>
-        <a href="#resources">Resources</a>
+        <a href="#pretraining">Pretraining</a>
+        <a href="#tasks">Tasks</a>
       </div>
       <a class="nav-paper" href="paper/foundation-models-for-particle-accelerators.pdf">PDF <span aria-hidden="true">↗</span></a>
     </div>
@@ -317,34 +318,80 @@
       </div>
     </section>
 
-    <section class="section section-takeaways" aria-labelledby="takeaways-title">
-      <div class="container editorial-grid">
-        <div class="section-rail"><p class="eyebrow">What the study shows</p></div>
-        <div class="editorial-main">
-          <h2 id="takeaways-title">A credible first step toward reusable models for accelerator operations.</h2>
-          <div class="takeaway-list">
-            <article><span>01</span><h3>Sensor sets remove a rigid schema assumption.</h3><p>Permutation-invariant encoding and equivariant decoding let one architecture process different channel collections without imposing a facility-wide column layout.</p></article>
-            <article><span>02</span><h3>Masked denoising aligns pretraining with real missingness.</h3><p>The objective explicitly covers isolated points, partial time slices, intermittent channels, and structured time–channel gaps.</p></article>
-            <article><span>03</span><h3>The representation transfers beyond reconstruction.</h3><p>Frozen-backbone adaptation is evaluated on binary anomaly detection and multiclass cavity and fault identification—not only on the pretraining task.</p></article>
-            <article><span>04</span><h3>More capacity and more data both help in the tested regime.</h3><p>The scaling result is an empirical diagnostic within the measured grid, not a claim that the fitted law will extrapolate indefinitely.</p></article>
+    <section class="section section-pretraining" id="pretraining" aria-labelledby="pretraining-title">
+      <div class="container">
+        <div class="section-intro split-intro">
+          <div><p class="eyebrow">Pretraining data</p><h2 id="pretraining-title">Heterogeneity is the training signal.</h2></div>
+          <p>SensOFormer learns from five accelerator data families without forcing them into one global channel schema. Each source keeps its own sensors, sequence structure, and operational context.</p>
+        </div>
+
+        <div class="pretraining-grid">
+          <div>
+            <p class="subsection-label">Five-source corpus</p>
+            <ul class="corpus-list">
+              <li><span class="corpus-index">01</span><span class="corpus-name"><strong>LANSCE</strong><small>Operational telemetry · LANL</small></span><span class="corpus-scale">4,250 records · 1–1,754 ch.</span></li>
+              <li><span class="corpus-index">02</span><span class="corpus-name"><strong>LHC-BL</strong><small>Beam-loss monitoring · CERN</small></span><span class="corpus-scale">2 long sequences · 66 ch.</span></li>
+              <li><span class="corpus-index">03</span><span class="corpus-name"><strong>HVCM-SNS</strong><small>Power-electronics waveforms · ORNL</small></span><span class="corpus-scale">10,000 samples · 12 ch.</span></li>
+              <li><span class="corpus-index">04</span><span class="corpus-name"><strong>RFS-LCLS</strong><small>RF-station signals · SLAC</small></span><span class="corpus-scale">9,841 records · 9 ch.</span></li>
+              <li><span class="corpus-index">05</span><span class="corpus-name"><strong>SRF-CEBAF</strong><small>Superconducting-RF events · JLab</small></span><span class="corpus-scale">2,375 events · 192 steps</span></li>
+            </ul>
           </div>
+
+          <div>
+            <p class="subsection-label">From sequence to training example</p>
+            <ol class="recipe-list">
+              <li><strong>Split first</strong><p>Original sequences are divided 90/10 before windowing, so overlapping windows cannot leak across train and validation sets.</p></li>
+              <li><strong>Window</strong><p>Each sequence becomes a 1,024-step window with stride 256; channel counts remain dataset-specific with no channel padding.</p></li>
+              <li><strong>Normalize</strong><p>Visible values are scaled per window and per channel, using no statistics from the masked targets.</p></li>
+              <li><strong>Denoise</strong><p>Noise is added only to visible measurements, teaching the model to recover structure instead of copying inputs.</p></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="mask-bank" aria-labelledby="mask-bank-title">
+          <p class="subsection-label" id="mask-bank-title">Mask bank · one pattern sampled per window</p>
+          <div class="mask-grid">
+            <div><strong>Point-wise</strong><span>Hide 15% of individual values</span></div>
+            <div><strong>Time-wise</strong><span>Hide 75% of channels at one time</span></div>
+            <div><strong>Channel-wise</strong><span>Hide 60% of one sensor’s time steps</span></div>
+            <div><strong>Block-wise</strong><span>Hide a contiguous ≈15% time–channel region</span></div>
+          </div>
+          <p class="pretraining-note">Together, the masks reproduce isolated dropouts, missing time slices, intermittent sensors, and structured gaps seen in accelerator telemetry.</p>
         </div>
       </div>
     </section>
 
-    <section class="section section-resources" id="resources" aria-labelledby="resources-title">
+    <section class="section section-tasks" id="tasks" aria-labelledby="tasks-title">
       <div class="container">
         <div class="section-intro split-intro">
-          <div><p class="eyebrow">Resources + reproducibility</p><h2 id="resources-title">Read and inspect the work.</h2></div>
-          <p>This repository currently publishes the project website and an earlier workshop-version paper. It does not contain the SensOFormer implementation, pretrained weights, or the multi-facility datasets.</p>
+          <div><p class="eyebrow">Downstream tasks</p><h2 id="tasks-title">One representation, three modes of use.</h2></div>
+          <p>The pretrained encoder and temporal processor form the shared backbone. SensOFormer either reuses its reconstruction decoder directly or adds a compact task-specific head.</p>
         </div>
 
-        <div class="resource-grid">
-          <a class="resource-card" href="paper/foundation-models-for-particle-accelerators.pdf"><span class="resource-type">PDF · local</span><h3>Workshop paper</h3><p>A Foundation Model Approach to Particle Accelerator Operational Data</p><span class="resource-arrow" aria-hidden="true">↗</span></a>
-          <a class="resource-card" href="https://openreview.net/forum?id=sdBsI9MA5a" target="_blank" rel="noreferrer"><span class="resource-type">External</span><h3>Workshop OpenReview</h3><p>ICML 2026 Workshop on Foundation Models for Structured Data</p><span class="resource-arrow" aria-hidden="true">↗</span></a>
-          <a class="resource-card" href="https://github.com/mahindrautela/sensoformer" target="_blank" rel="noreferrer"><span class="resource-type">GitHub</span><h3>Website source</h3><p>Static HTML, CSS, JavaScript, figures, and deployment workflow</p><span class="resource-arrow" aria-hidden="true">↗</span></a>
+        <div class="task-pathways">
+          <article>
+            <span class="task-index">01</span>
+            <div class="task-heading"><p class="task-mode">Zero-shot · reconstruction</p><h3>Missing-data imputation</h3></div>
+            <p class="task-description">Recover masked sensor values from temporal and cross-channel context across six held-out test settings. No downstream labels or task-specific training are required.</p>
+            <div class="task-outcome"><strong>21 / 24</strong><span>dataset–mask settings led by the B model</span></div>
+          </article>
+
+          <article>
+            <span class="task-index">02</span>
+            <div class="task-heading"><p class="task-mode">Frozen backbone · binary head</p><h3>Anomaly detection</h3></div>
+            <p class="task-description">A 0.22M-parameter temporal CNN head learns normal-versus-faulty HVCM-SNS behavior while the pretrained XTi encoder and processor remain frozen.</p>
+            <div class="task-outcome"><strong>20 / 21</strong><span>induced early-fault tests passed · 95.2%</span></div>
+          </article>
+
+          <article>
+            <span class="task-index">03</span>
+            <div class="task-heading"><p class="task-mode">Pretrained backbone · multiclass heads</p><h3>Cavity &amp; fault identification</h3></div>
+            <p class="task-description">Separate lightweight heads identify the first faulting CEBAF cavity across 9 classes and the fault type across 8 classes. The fault benchmark is surpassed with only 25% of the labeled training set.</p>
+            <div class="task-outcome"><strong>84.80% / 84.01%</strong><span>cavity / fault test accuracy</span></div>
+          </article>
         </div>
 
+        <p class="transfer-note"><strong>Transfer principle:</strong> preserve the learned sensor representation; change only the output interface needed by the operational task.</p>
       </div>
     </section>
   </main>
