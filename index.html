@@ -183,48 +183,71 @@
       <div class="container">
         <div class="section-intro split-intro">
           <div><p class="eyebrow">Particle accelerators · a primer</p><h2 id="accelerators-title">Machines that turn fields into controlled beams.</h2></div>
-          <p>A particle accelerator uses electric fields to add energy to charged particles and magnets to focus and steer them. Along the beamline, instruments continuously measure position, intensity, timing, and losses so operators can keep the machine stable and safe.</p>
+          <div class="accelerator-primer-copy">
+            <p>Particle accelerators use electric fields to add energy to charged particles and magnets to focus and steer them. Flagship accelerators are billion-dollar scientific facilities, with thousands of components that must work in concert.</p>
+            <p>The LANSCE linear accelerator at Los Alamos stretches about one kilometer, while CERN’s Large Hadron Collider follows a 27-kilometer ring. Along every beamline, instruments continuously measure position, intensity, timing, and losses so operators can keep the machine stable and safe.</p>
+          </div>
         </div>
 
         <figure class="accelerator-figure">
           <div class="accelerator-figure-heading">
-            <div><p class="subsection-label">Simplified linear accelerator</p><h3>From particle source to experiment</h3></div>
-            <div class="accelerator-legend" aria-label="Diagram legend"><span><i class="legend-particle"></i>Particle bunch</span><span><i class="legend-magnet"></i>Magnetic focusing</span><span><i class="legend-sensor"></i>Instrumentation</span></div>
+            <div><p class="subsection-label">Simplified accelerator beamline</p><h3>From particle source to experiment</h3></div>
+            <div class="accelerator-legend" aria-label="Diagram legend"><span><i class="legend-particle"></i>Particle bunch</span><span><i class="legend-rf"></i>RF acceleration</span><span><i class="legend-magnet"></i>Beam magnets</span><span><i class="legend-sensor"></i>Live telemetry</span></div>
             <span class="diagram-scroll-hint" aria-hidden="true">Swipe to inspect →</span>
           </div>
 
           <div class="accelerator-visual-scroll" tabindex="0" aria-label="Scrollable accelerator diagram">
-            <svg class="accelerator-diagram" viewBox="0 0 1120 430" role="img" aria-labelledby="accelerator-diagram-title accelerator-diagram-desc" focusable="false">
-              <title id="accelerator-diagram-title">How a linear particle accelerator works</title>
-              <desc id="accelerator-diagram-desc">Animated particle bunches leave a source, gain energy in radio-frequency cavities, pass through focusing magnets and beam diagnostics, and reach an experiment. RF probes, magnet-current monitors, beam-position monitors, and beam-loss monitors send telemetry to the control system.</desc>
+            <svg class="accelerator-diagram" viewBox="0 0 1120 480" role="img" aria-labelledby="accelerator-diagram-title accelerator-diagram-desc" focusable="false">
+              <title id="accelerator-diagram-title">How an accelerator beamline works</title>
+              <desc id="accelerator-diagram-desc">Animated particle bunches leave a source, speed up as radio-frequency cavities add energy, bend through a dipole magnet, narrow through quadrupole magnets, pass through beam diagnostics, and reach an experiment. Animated signals from RF probes, magnet-current monitors, beam-position monitors, and beam-loss monitors travel to the control system.</desc>
               <defs>
                 <linearGradient id="beamGradient" x1="0" x2="1">
                   <stop offset="0" stop-color="#c9694d" stop-opacity="0.28"/>
                   <stop offset="0.5" stop-color="#c9694d" stop-opacity="0.72"/>
                   <stop offset="1" stop-color="#c9694d" stop-opacity="0.28"/>
                 </linearGradient>
-                <clipPath id="acceleratorBeamClip"><rect x="112" y="170" width="855" height="40" rx="20"/></clipPath>
+                <linearGradient id="energyGradient" x1="0" x2="1">
+                  <stop offset="0" stop-color="#c9694d" stop-opacity="0.3"/>
+                  <stop offset="1" stop-color="#c9694d" stop-opacity="0.95"/>
+                </linearGradient>
+                <filter id="beamGlow" x="-80%" y="-80%" width="260%" height="260%">
+                  <feGaussianBlur stdDeviation="2.2" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <path id="beamTrajectory" d="M120 190H430C455 190 475 214 500 218L972 286"/>
+                <clipPath id="acceleratorBeamClip"><rect x="108" y="158" width="872" height="150" rx="18"/></clipPath>
                 <marker id="telemetryArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z"/></marker>
+                <marker id="energyArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0l10 5-10 5z"/></marker>
+                <marker id="fieldArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0l10 5-10 5z"/></marker>
               </defs>
 
               <g class="accelerator-stage-labels" aria-hidden="true">
-                <text x="73" y="47">01 · SOURCE</text>
-                <text x="275" y="47">02 · ACCELERATE</text>
-                <text x="515" y="47">03 · FOCUS</text>
-                <text x="712" y="47">04 · MEASURE</text>
-                <text x="951" y="47">05 · USE THE BEAM</text>
+                <text x="55" y="47">01 · SOURCE</text>
+                <text x="180" y="47">02 · ACCELERATE</text>
+                <text x="430" y="47">03 · BEND</text>
+                <text x="565" y="47">04 · FOCUS</text>
+                <text x="750" y="47">05 · MEASURE</text>
+                <text x="940" y="47">06 · USE THE BEAM</text>
               </g>
 
               <g class="accelerator-stage-names" aria-hidden="true">
-                <text x="73" y="72">Particle source</text>
-                <text x="275" y="72">RF cavities</text>
-                <text x="515" y="72">Quadrupole magnets</text>
-                <text x="712" y="72">Beam diagnostics</text>
-                <text x="951" y="72">Target / experiment</text>
+                <text x="55" y="72">Particle source</text>
+                <text x="180" y="72">RF cavities</text>
+                <text x="430" y="72">Dipole magnet</text>
+                <text x="565" y="72">Quadrupole magnets</text>
+                <text x="750" y="72">Beam diagnostics</text>
+                <text x="940" y="72">Target / experiment</text>
               </g>
 
-              <path class="beam-pipe" d="M105 190H985" aria-hidden="true"/>
-              <path class="beam-core" d="M105 190H985" aria-hidden="true"/>
+              <path class="unbent-reference" d="M405 190H545" aria-hidden="true"/>
+              <path class="beam-pipe" d="M105 190H430C455 190 475 214 500 218L985 288" aria-hidden="true"/>
+              <path class="beam-core" d="M105 190H430C455 190 475 214 500 218L985 288" aria-hidden="true"/>
+
+              <g class="energy-scale" aria-hidden="true">
+                <text x="160" y="126">LOW ENERGY</text>
+                <path d="M230 122H382" marker-end="url(#energyArrow)"/>
+                <text x="393" y="126">HIGH ENERGY</text>
+              </g>
 
               <g class="particle-source" aria-hidden="true">
                 <rect x="54" y="151" width="58" height="78" rx="9"/>
@@ -234,63 +257,100 @@
               </g>
 
               <g class="rf-cavities" aria-hidden="true">
-                <rect x="174" y="152" width="30" height="76" rx="8"/>
-                <rect x="211" y="159" width="30" height="62" rx="8"/>
-                <rect x="248" y="152" width="30" height="76" rx="8"/>
-                <rect x="285" y="159" width="30" height="62" rx="8"/>
-                <rect x="322" y="152" width="30" height="76" rx="8"/>
-                <rect x="359" y="159" width="30" height="62" rx="8"/>
-                <rect x="396" y="152" width="30" height="76" rx="8"/>
-                <path d="M189 167v46M226 174v32M263 167v46M300 174v32M337 167v46M374 174v32M411 167v46"/>
+                <rect x="160" y="152" width="28" height="76" rx="8"/>
+                <rect x="194" y="159" width="28" height="62" rx="8"/>
+                <rect x="228" y="152" width="28" height="76" rx="8"/>
+                <rect x="262" y="159" width="28" height="62" rx="8"/>
+                <rect x="296" y="152" width="28" height="76" rx="8"/>
+                <rect x="330" y="159" width="28" height="62" rx="8"/>
+                <rect x="364" y="152" width="28" height="76" rx="8"/>
+                <path d="M174 167v46M208 174v32M242 167v46M276 174v32M310 167v46M344 174v32M378 167v46"/>
+                <g class="rf-field-waves">
+                  <ellipse cx="174" cy="190" rx="7" ry="22"/>
+                  <ellipse cx="208" cy="190" rx="7" ry="16"/>
+                  <ellipse cx="242" cy="190" rx="7" ry="22"/>
+                  <ellipse cx="276" cy="190" rx="7" ry="16"/>
+                  <ellipse cx="310" cy="190" rx="7" ry="22"/>
+                  <ellipse cx="344" cy="190" rx="7" ry="16"/>
+                  <ellipse cx="378" cy="190" rx="7" ry="22"/>
+                </g>
+              </g>
+
+              <g class="dipole-magnet" aria-hidden="true">
+                <path d="M428 145h45q28 0 51 16l-18 27q-16-12-36-12h-42z"/>
+                <path d="M428 211h34q24 0 42 14l27 21q-24 20-57 20h-46z"/>
+                <g class="dipole-field">
+                  <path d="M458 182v22" marker-end="url(#fieldArrow)"/>
+                  <path d="M474 184v24" marker-end="url(#fieldArrow)"/>
+                  <path d="M490 189v22" marker-end="url(#fieldArrow)"/>
+                </g>
+              </g>
+
+              <g class="focus-envelope" aria-hidden="true">
+                <path d="M535 205Q630 222 735 247"/>
+                <path d="M535 241Q630 250 735 255"/>
               </g>
 
               <g class="quadrupoles" aria-hidden="true">
-                <g transform="translate(500 190)"><path d="M-28-35h19l9 21 9-21h19v70H9L0 14l-9 21h-19z"/></g>
-                <g transform="translate(575 190) rotate(180)"><path d="M-28-35h19l9 21 9-21h19v70H9L0 14l-9 21h-19z"/></g>
+                <g transform="translate(590 231) rotate(8)"><path d="M-27-34h18l9 20 9-20h18v68H9L0 14l-9 20h-18z"/></g>
+                <g transform="translate(670 243) rotate(188)"><path d="M-27-34h18l9 20 9-20h18v68H9L0 14l-9 20h-18z"/></g>
               </g>
 
               <g class="beam-diagnostics" aria-hidden="true">
-                <circle cx="695" cy="190" r="29"/>
-                <circle cx="695" cy="190" r="16"/>
-                <path d="M695 151v18M695 211v18M656 190h18M716 190h18"/>
-                <rect x="775" y="152" width="45" height="76" rx="6"/>
-                <path d="M787 168h21M787 178h21M787 202h21M787 212h21"/>
+                <g transform="rotate(8 780 258)">
+                  <circle cx="780" cy="258" r="29"/>
+                  <circle cx="780" cy="258" r="16"/>
+                  <path d="M780 219v18M780 279v18M741 258h18M801 258h18"/>
+                  <path class="diagnostic-scan" d="M766 234v48"/>
+                </g>
+                <g transform="rotate(8 862 267)">
+                  <rect x="840" y="230" width="44" height="74" rx="6"/>
+                  <path d="M851 246h22M851 256h22M851 278h22M851 288h22"/>
+                </g>
               </g>
 
-              <g class="beam-target" aria-hidden="true">
-                <path d="M965 149v82M978 158v64M991 168v44"/>
-                <path class="target-rays" d="M1002 190h39M1005 177l33-17M1005 203l33 17"/>
+              <g class="beam-target" transform="rotate(8 985 288)" aria-hidden="true">
+                <circle class="target-glow" cx="1012" cy="288" r="11"/>
+                <path d="M980 247v82M993 256v64M1006 266v44"/>
+                <path class="target-rays" d="M1017 288h39M1020 275l33-17M1020 301l33 17"/>
               </g>
 
               <g clip-path="url(#acceleratorBeamClip)" aria-hidden="true">
-                <g class="particle-bunch"><circle cx="120" cy="184" r="5"/><circle cx="128" cy="190" r="6"/><circle cx="119" cy="197" r="4"/><animateMotion dur="4.6s" repeatCount="indefinite" path="M0 0H835"/></g>
-                <g class="particle-bunch"><circle cx="120" cy="184" r="5"/><circle cx="128" cy="190" r="6"/><circle cx="119" cy="197" r="4"/><animateMotion begin="-1.53s" dur="4.6s" repeatCount="indefinite" path="M0 0H835"/></g>
-                <g class="particle-bunch"><circle cx="120" cy="184" r="5"/><circle cx="128" cy="190" r="6"/><circle cx="119" cy="197" r="4"/><animateMotion begin="-3.06s" dur="4.6s" repeatCount="indefinite" path="M0 0H835"/></g>
+                <g class="particle-bunch"><path class="bunch-tail" d="M-23 0h17"/><circle cx="-3" cy="-6" r="5"/><circle cx="5" cy="0" r="6"/><circle cx="-4" cy="7" r="4"/><animateMotion dur="4.2s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.37;1" keyTimes="0;0.58;1" rotate="auto"><mpath href="#beamTrajectory"/></animateMotion></g>
+                <g class="particle-bunch"><path class="bunch-tail" d="M-23 0h17"/><circle cx="-3" cy="-6" r="5"/><circle cx="5" cy="0" r="6"/><circle cx="-4" cy="7" r="4"/><animateMotion begin="-1.4s" dur="4.2s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.37;1" keyTimes="0;0.58;1" rotate="auto"><mpath href="#beamTrajectory"/></animateMotion></g>
+                <g class="particle-bunch"><path class="bunch-tail" d="M-23 0h17"/><circle cx="-3" cy="-6" r="5"/><circle cx="5" cy="0" r="6"/><circle cx="-4" cy="7" r="4"/><animateMotion begin="-2.8s" dur="4.2s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.37;1" keyTimes="0;0.58;1" rotate="auto"><mpath href="#beamTrajectory"/></animateMotion></g>
+              </g>
+
+              <g class="element-actions" aria-hidden="true">
+                <g class="action-rf"><rect x="160" y="302" width="150" height="42" rx="6"/><text class="action-element" x="235" y="317">RF ELECTRIC FIELD</text><text class="action-effect" x="235" y="333">ENERGY ↑</text></g>
+                <g class="action-magnet"><rect x="420" y="302" width="130" height="42" rx="6"/><text class="action-element" x="485" y="317">DIPOLE FIELD</text><text class="action-effect" x="485" y="333">DIRECTION ↷</text></g>
+                <g class="action-magnet"><rect x="570" y="302" width="150" height="42" rx="6"/><text class="action-element" x="645" y="317">FIELD GRADIENT</text><text class="action-effect" x="645" y="333">BEAM WIDTH ↓</text></g>
+                <g class="action-sensor"><rect x="750" y="316" width="150" height="42" rx="6"/><text class="action-element" x="825" y="331">SENSORS</text><text class="action-effect" x="825" y="347">POSITION · LOSS</text></g>
               </g>
 
               <g class="instrumentation" aria-hidden="true">
-                <text class="instrumentation-title" x="55" y="288">INSTRUMENTATION + CONTROL</text>
-                <path class="instrument-bus" d="M265 315H915" marker-end="url(#telemetryArrow)"/>
-                <path class="instrument-link" d="M337 230V315M538 230V315M695 230V315M798 230V315"/>
-                <circle cx="337" cy="315" r="7"/><circle cx="538" cy="315" r="7"/><circle cx="695" cy="315" r="7"/><circle cx="798" cy="315" r="7"/>
-                <text x="337" y="345">RF field probe</text>
-                <text x="538" y="345">Magnet current</text>
-                <text x="695" y="345">Beam position</text>
-                <text x="798" y="345">Beam loss</text>
-                <rect class="control-box" x="930" y="286" width="150" height="58" rx="7"/>
-                <text class="control-title" x="1005" y="309">CONTROL SYSTEM</text>
-                <text class="control-copy" x="1005" y="328">monitor · protect · tune</text>
-              </g>
-
-              <g class="accelerator-explainers" aria-hidden="true">
-                <text x="192" y="258">Electric fields add energy</text>
-                <text x="495" y="258">Magnets focus the bunch</text>
-                <text x="674" y="258">Sensors observe the beam</text>
+                <text class="instrumentation-title" x="55" y="383">INSTRUMENTATION + CONTROL</text>
+                <path class="instrument-bus" d="M235 398H915" marker-end="url(#telemetryArrow)"/>
+                <path class="instrument-link" d="M310 344V398M485 344V398M645 344V398M780 358V398M862 358V398"/>
+                <circle cx="310" cy="398" r="7"/><circle cx="485" cy="398" r="7"/><circle cx="645" cy="398" r="7"/><circle cx="780" cy="398" r="7"/><circle cx="862" cy="398" r="7"/>
+                <g class="telemetry-pulses">
+                  <circle r="3"><animateMotion dur="3.2s" repeatCount="indefinite" path="M235 398H915"/></circle>
+                  <circle r="3"><animateMotion begin="-1.6s" dur="3.2s" repeatCount="indefinite" path="M235 398H915"/></circle>
+                </g>
+                <text x="310" y="435">RF phase</text>
+                <text x="485" y="435">Dipole current</text>
+                <text x="645" y="435">Quadrupole current</text>
+                <text x="780" y="435">Beam position</text>
+                <text x="862" y="435">Beam loss</text>
+                <rect class="control-box" x="930" y="368" width="150" height="60" rx="7"/>
+                <text class="control-title" x="1005" y="392">CONTROL SYSTEM</text>
+                <text class="control-copy" x="1005" y="413">monitor · protect · tune</text>
+                <circle class="control-status" cx="1062" cy="382" r="3"/>
               </g>
             </svg>
           </div>
 
-          <figcaption>Particle bunches move left to right. The beam becomes useful only when acceleration, focusing, diagnostics, timing, vacuum, and machine protection work together.</figcaption>
+          <figcaption>Follow one bunch from source to experiment: RF cavities accelerate it, a dipole magnet bends it, quadrupole magnets focus it, and diagnostics measure it while live signals flow to the control system.</figcaption>
         </figure>
 
         <div class="accelerator-context-grid">
@@ -309,8 +369,8 @@
             <p class="subsection-label">Facilities represented in this study</p>
             <h3 class="context-heading">Different machines, related operational data.</h3>
             <ul class="facility-list">
-              <li><strong>LANSCE</strong><span>Proton linear accelerator · Los Alamos</span></li>
-              <li><strong>LHC</strong><span>Circular proton and ion collider · CERN</span></li>
+              <li><strong>LANSCE</strong><span>≈1 km proton linear accelerator · Los Alamos</span></li>
+              <li><strong>LHC</strong><span>27 km proton and ion collider · CERN</span></li>
               <li><strong>SNS</strong><span>Pulsed proton accelerator and neutron source · Oak Ridge</span></li>
               <li><strong>LCLS</strong><span>Electron linac and x-ray free-electron laser · SLAC</span></li>
               <li><strong>CEBAF</strong><span>Recirculating electron accelerator · Jefferson Lab</span></li>

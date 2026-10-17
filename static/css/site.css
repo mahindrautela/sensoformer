@@ -679,11 +679,21 @@ h1 em {
   border-bottom: 1px solid var(--line);
 }
 
+.accelerator-primer-copy {
+  display: grid;
+  gap: 13px;
+}
+
+.accelerator-primer-copy p {
+  margin: 0;
+}
+
 .accelerator-figure {
   overflow: hidden;
   background: #f7f6f1;
   border: 1px solid var(--line);
   border-radius: 9px;
+  box-shadow: 0 22px 60px rgba(22, 53, 58, 0.06);
 }
 
 .accelerator-figure-heading {
@@ -730,6 +740,10 @@ h1 em {
 }
 
 .legend-particle { background: var(--coral); }
+.legend-rf {
+  background: var(--coral-soft);
+  border: 1px solid var(--coral);
+}
 .legend-magnet { background: var(--violet); }
 .legend-sensor { background: var(--teal); }
 
@@ -746,6 +760,11 @@ h1 em {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scrollbar-color: var(--line-dark) transparent;
+  background-color: #f7f6f1;
+  background-image:
+    linear-gradient(rgba(17, 105, 103, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 105, 103, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .accelerator-visual-scroll:focus-visible {
@@ -787,6 +806,35 @@ h1 em {
   stroke-width: 3;
 }
 
+.unbent-reference {
+  fill: none;
+  stroke: #aebbb7;
+  stroke-dasharray: 3 5;
+  stroke-width: 1;
+  opacity: 0.8;
+}
+
+.energy-scale {
+  fill: var(--muted);
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: 0.09em;
+}
+
+.energy-scale path {
+  fill: none;
+  stroke: url(#energyGradient);
+  stroke-width: 1.2;
+}
+
+#energyArrow path {
+  fill: var(--coral);
+}
+
+#fieldArrow path {
+  fill: var(--violet);
+}
+
 .particle-source rect {
   fill: var(--wash-blue);
   stroke: #8caaa9;
@@ -817,6 +865,42 @@ h1 em {
   stroke-width: 1.2;
 }
 
+.rf-cavities .rf-field-waves ellipse {
+  fill: none;
+  stroke: var(--coral);
+  stroke-width: 1.3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rf-field-pulse 1.25s ease-in-out infinite;
+}
+
+.rf-cavities .rf-field-waves ellipse:nth-child(even) {
+  animation-delay: -0.625s;
+}
+
+.focus-envelope path {
+  fill: none;
+  stroke: var(--violet);
+  stroke-dasharray: 4 4;
+  stroke-width: 1.3;
+  opacity: 0.8;
+  animation: focus-breathe 2.4s ease-in-out infinite;
+}
+
+.dipole-magnet > path {
+  fill: var(--violet-soft);
+  stroke: var(--violet);
+  stroke-linejoin: round;
+  stroke-width: 1.4;
+}
+
+.dipole-field path {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 1.1;
+  opacity: 0.7;
+}
+
 .quadrupoles path {
   fill: var(--violet-soft);
   stroke: var(--violet);
@@ -836,11 +920,29 @@ h1 em {
   stroke-width: 1.2;
 }
 
+.beam-diagnostics .diagnostic-scan {
+  stroke: var(--teal);
+  stroke-width: 2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: diagnostic-scan 1.9s ease-in-out infinite;
+}
+
 .beam-target path {
   fill: none;
   stroke: var(--coral);
   stroke-linecap: round;
   stroke-width: 3;
+}
+
+.beam-target .target-glow {
+  fill: var(--coral-soft);
+  stroke: var(--coral);
+  stroke-width: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: target-glow 1.6s ease-out infinite;
 }
 
 .beam-target .target-rays {
@@ -850,6 +952,15 @@ h1 em {
 
 .particle-bunch {
   fill: var(--coral);
+  filter: url(#beamGlow);
+}
+
+.particle-bunch .bunch-tail {
+  fill: none;
+  stroke: var(--coral);
+  stroke-linecap: round;
+  stroke-width: 2;
+  opacity: 0.3;
 }
 
 .instrument-bus {
@@ -867,6 +978,7 @@ h1 em {
   stroke: #81aaa5;
   stroke-dasharray: 4 5;
   stroke-width: 1.2;
+  animation: telemetry-link 1.6s linear infinite;
 }
 
 .instrumentation circle {
@@ -888,6 +1000,19 @@ h1 em {
   stroke-width: 1.2;
 }
 
+.instrumentation .telemetry-pulses circle {
+  fill: var(--teal);
+  stroke: var(--paper);
+  stroke-width: 1.2;
+}
+
+.instrumentation .control-status {
+  fill: var(--teal);
+  stroke: var(--paper);
+  stroke-width: 1;
+  animation: control-status 1.6s ease-in-out infinite;
+}
+
 .instrumentation .control-title {
   fill: var(--teal-dark);
   font-size: 9px;
@@ -900,11 +1025,53 @@ h1 em {
   font-size: 9px;
 }
 
-.accelerator-explainers {
+.element-actions rect {
+  stroke-width: 1;
+}
+
+.element-actions text {
+  font-family: var(--sans);
+  text-anchor: middle;
+}
+
+.element-actions .action-element {
   fill: var(--muted);
-  font-family: var(--serif);
-  font-size: 11px;
-  font-style: italic;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.element-actions .action-effect {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.element-actions .action-rf rect {
+  fill: #f8e8e1;
+  stroke: #dfab98;
+}
+
+.element-actions .action-rf .action-effect {
+  fill: var(--coral);
+}
+
+.element-actions .action-magnet rect {
+  fill: #eeebf4;
+  stroke: #b7aac7;
+}
+
+.element-actions .action-magnet .action-effect {
+  fill: var(--violet);
+}
+
+.element-actions .action-sensor rect {
+  fill: var(--teal-soft);
+  stroke: #83b6b0;
+}
+
+.element-actions .action-sensor .action-effect {
+  fill: var(--teal-dark);
 }
 
 .accelerator-figure figcaption {
@@ -1000,6 +1167,36 @@ h1 em {
 
 @keyframes target-pulse {
   0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+@keyframes rf-field-pulse {
+  0%, 100% { opacity: 0.22; transform: scaleX(0.65); }
+  50% { opacity: 0.9; transform: scaleX(1); }
+}
+
+@keyframes focus-breathe {
+  0%, 100% { opacity: 0.58; }
+  50% { opacity: 0.95; }
+}
+
+@keyframes diagnostic-scan {
+  0% { opacity: 0; transform: translateX(-7px); }
+  20%, 80% { opacity: 0.85; }
+  100% { opacity: 0; transform: translateX(28px); }
+}
+
+@keyframes target-glow {
+  0% { opacity: 0.75; transform: scale(0.55); }
+  75%, 100% { opacity: 0; transform: scale(1.5); }
+}
+
+@keyframes telemetry-link {
+  to { stroke-dashoffset: -18; }
+}
+
+@keyframes control-status {
+  0%, 100% { opacity: 0.45; }
   50% { opacity: 1; }
 }
 
