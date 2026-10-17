@@ -1,5 +1,10 @@
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const acceleratorDiagram = document.querySelector('.accelerator-diagram');
+
+  if (reducedMotion && typeof acceleratorDiagram?.pauseAnimations === 'function') {
+    acceleratorDiagram.pauseAnimations();
+  }
 
   const navLinks = [...document.querySelectorAll('.nav-links a')];
   const observedSections = navLinks

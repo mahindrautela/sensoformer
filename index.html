@@ -158,13 +158,14 @@
         <figcaption>Operational telemetry is encoded as sensor sets—not a single fixed channel vector.</figcaption>
       </figure>
     </div>
-    <a class="scroll-cue" href="#glance"><span>Explore the research</span><span aria-hidden="true">↓</span></a>
+    <a class="scroll-cue" href="#accelerators"><span>Start with accelerators</span><span aria-hidden="true">↓</span></a>
   </header>
 
   <nav class="section-nav" aria-label="Page sections">
     <div class="container nav-inner">
       <a class="nav-mark" href="#top" aria-label="SensOFormer home">S<span>O</span>F</a>
       <div class="nav-links">
+        <a href="#accelerators">Accelerators</a>
         <a href="#glance">Overview</a>
         <a href="#challenge">Challenge</a>
         <a href="#method">Method</a>
@@ -178,6 +179,147 @@
   </nav>
 
   <main id="main-content">
+    <section class="section section-accelerator" id="accelerators" aria-labelledby="accelerators-title">
+      <div class="container">
+        <div class="section-intro split-intro">
+          <div><p class="eyebrow">Particle accelerators · a primer</p><h2 id="accelerators-title">Machines that turn fields into controlled beams.</h2></div>
+          <p>A particle accelerator uses electric fields to add energy to charged particles and magnets to focus and steer them. Along the beamline, instruments continuously measure position, intensity, timing, and losses so operators can keep the machine stable and safe.</p>
+        </div>
+
+        <figure class="accelerator-figure">
+          <div class="accelerator-figure-heading">
+            <div><p class="subsection-label">Simplified linear accelerator</p><h3>From particle source to experiment</h3></div>
+            <div class="accelerator-legend" aria-label="Diagram legend"><span><i class="legend-particle"></i>Particle bunch</span><span><i class="legend-magnet"></i>Magnetic focusing</span><span><i class="legend-sensor"></i>Instrumentation</span></div>
+            <span class="diagram-scroll-hint" aria-hidden="true">Swipe to inspect →</span>
+          </div>
+
+          <div class="accelerator-visual-scroll" tabindex="0" aria-label="Scrollable accelerator diagram">
+            <svg class="accelerator-diagram" viewBox="0 0 1120 430" role="img" aria-labelledby="accelerator-diagram-title accelerator-diagram-desc" focusable="false">
+              <title id="accelerator-diagram-title">How a linear particle accelerator works</title>
+              <desc id="accelerator-diagram-desc">Animated particle bunches leave a source, gain energy in radio-frequency cavities, pass through focusing magnets and beam diagnostics, and reach an experiment. RF probes, magnet-current monitors, beam-position monitors, and beam-loss monitors send telemetry to the control system.</desc>
+              <defs>
+                <linearGradient id="beamGradient" x1="0" x2="1">
+                  <stop offset="0" stop-color="#c9694d" stop-opacity="0.28"/>
+                  <stop offset="0.5" stop-color="#c9694d" stop-opacity="0.72"/>
+                  <stop offset="1" stop-color="#c9694d" stop-opacity="0.28"/>
+                </linearGradient>
+                <clipPath id="acceleratorBeamClip"><rect x="112" y="170" width="855" height="40" rx="20"/></clipPath>
+                <marker id="telemetryArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z"/></marker>
+              </defs>
+
+              <g class="accelerator-stage-labels" aria-hidden="true">
+                <text x="73" y="47">01 · SOURCE</text>
+                <text x="275" y="47">02 · ACCELERATE</text>
+                <text x="515" y="47">03 · FOCUS</text>
+                <text x="712" y="47">04 · MEASURE</text>
+                <text x="951" y="47">05 · USE THE BEAM</text>
+              </g>
+
+              <g class="accelerator-stage-names" aria-hidden="true">
+                <text x="73" y="72">Particle source</text>
+                <text x="275" y="72">RF cavities</text>
+                <text x="515" y="72">Quadrupole magnets</text>
+                <text x="712" y="72">Beam diagnostics</text>
+                <text x="951" y="72">Target / experiment</text>
+              </g>
+
+              <path class="beam-pipe" d="M105 190H985" aria-hidden="true"/>
+              <path class="beam-core" d="M105 190H985" aria-hidden="true"/>
+
+              <g class="particle-source" aria-hidden="true">
+                <rect x="54" y="151" width="58" height="78" rx="9"/>
+                <path d="M68 166h29M68 178h29M68 214h29"/>
+                <circle cx="83" cy="190" r="11"/>
+                <path d="M112 174h16v32h-16"/>
+              </g>
+
+              <g class="rf-cavities" aria-hidden="true">
+                <rect x="174" y="152" width="30" height="76" rx="8"/>
+                <rect x="211" y="159" width="30" height="62" rx="8"/>
+                <rect x="248" y="152" width="30" height="76" rx="8"/>
+                <rect x="285" y="159" width="30" height="62" rx="8"/>
+                <rect x="322" y="152" width="30" height="76" rx="8"/>
+                <rect x="359" y="159" width="30" height="62" rx="8"/>
+                <rect x="396" y="152" width="30" height="76" rx="8"/>
+                <path d="M189 167v46M226 174v32M263 167v46M300 174v32M337 167v46M374 174v32M411 167v46"/>
+              </g>
+
+              <g class="quadrupoles" aria-hidden="true">
+                <g transform="translate(500 190)"><path d="M-28-35h19l9 21 9-21h19v70H9L0 14l-9 21h-19z"/></g>
+                <g transform="translate(575 190) rotate(180)"><path d="M-28-35h19l9 21 9-21h19v70H9L0 14l-9 21h-19z"/></g>
+              </g>
+
+              <g class="beam-diagnostics" aria-hidden="true">
+                <circle cx="695" cy="190" r="29"/>
+                <circle cx="695" cy="190" r="16"/>
+                <path d="M695 151v18M695 211v18M656 190h18M716 190h18"/>
+                <rect x="775" y="152" width="45" height="76" rx="6"/>
+                <path d="M787 168h21M787 178h21M787 202h21M787 212h21"/>
+              </g>
+
+              <g class="beam-target" aria-hidden="true">
+                <path d="M965 149v82M978 158v64M991 168v44"/>
+                <path class="target-rays" d="M1002 190h39M1005 177l33-17M1005 203l33 17"/>
+              </g>
+
+              <g clip-path="url(#acceleratorBeamClip)" aria-hidden="true">
+                <g class="particle-bunch"><circle cx="120" cy="184" r="5"/><circle cx="128" cy="190" r="6"/><circle cx="119" cy="197" r="4"/><animateMotion dur="4.6s" repeatCount="indefinite" path="M0 0H835"/></g>
+                <g class="particle-bunch"><circle cx="120" cy="184" r="5"/><circle cx="128" cy="190" r="6"/><circle cx="119" cy="197" r="4"/><animateMotion begin="-1.53s" dur="4.6s" repeatCount="indefinite" path="M0 0H835"/></g>
+                <g class="particle-bunch"><circle cx="120" cy="184" r="5"/><circle cx="128" cy="190" r="6"/><circle cx="119" cy="197" r="4"/><animateMotion begin="-3.06s" dur="4.6s" repeatCount="indefinite" path="M0 0H835"/></g>
+              </g>
+
+              <g class="instrumentation" aria-hidden="true">
+                <text class="instrumentation-title" x="55" y="288">INSTRUMENTATION + CONTROL</text>
+                <path class="instrument-bus" d="M265 315H915" marker-end="url(#telemetryArrow)"/>
+                <path class="instrument-link" d="M337 230V315M538 230V315M695 230V315M798 230V315"/>
+                <circle cx="337" cy="315" r="7"/><circle cx="538" cy="315" r="7"/><circle cx="695" cy="315" r="7"/><circle cx="798" cy="315" r="7"/>
+                <text x="337" y="345">RF field probe</text>
+                <text x="538" y="345">Magnet current</text>
+                <text x="695" y="345">Beam position</text>
+                <text x="798" y="345">Beam loss</text>
+                <rect class="control-box" x="930" y="286" width="150" height="58" rx="7"/>
+                <text class="control-title" x="1005" y="309">CONTROL SYSTEM</text>
+                <text class="control-copy" x="1005" y="328">monitor · protect · tune</text>
+              </g>
+
+              <g class="accelerator-explainers" aria-hidden="true">
+                <text x="192" y="258">Electric fields add energy</text>
+                <text x="495" y="258">Magnets focus the bunch</text>
+                <text x="674" y="258">Sensors observe the beam</text>
+              </g>
+            </svg>
+          </div>
+
+          <figcaption>Particle bunches move left to right. The beam becomes useful only when acceleration, focusing, diagnostics, timing, vacuum, and machine protection work together.</figcaption>
+        </figure>
+
+        <div class="accelerator-context-grid">
+          <div>
+            <p class="subsection-label">Applications</p>
+            <h3 class="context-heading">Why build particle accelerators?</h3>
+            <div class="application-list">
+              <article><span>01</span><div><h4>Fundamental discovery</h4><p>Collide or scatter particles to probe matter, forces, and the early universe.</p></div></article>
+              <article><span>02</span><div><h4>Medicine</h4><p>Treat cancer with particle beams and produce radioisotopes for imaging and therapy.</p></div></article>
+              <article><span>03</span><div><h4>Materials &amp; chemistry</h4><p>Use intense x-rays and neutrons to resolve structures and follow fast processes.</p></div></article>
+              <article><span>04</span><div><h4>Industry &amp; security</h4><p>Inspect components, modify materials, sterilize products, and image concealed objects.</p></div></article>
+            </div>
+          </div>
+
+          <div>
+            <p class="subsection-label">Facilities represented in this study</p>
+            <h3 class="context-heading">Different machines, related operational data.</h3>
+            <ul class="facility-list">
+              <li><strong>LANSCE</strong><span>Proton linear accelerator · Los Alamos</span></li>
+              <li><strong>LHC</strong><span>Circular proton and ion collider · CERN</span></li>
+              <li><strong>SNS</strong><span>Pulsed proton accelerator and neutron source · Oak Ridge</span></li>
+              <li><strong>LCLS</strong><span>Electron linac and x-ray free-electron laser · SLAC</span></li>
+              <li><strong>CEBAF</strong><span>Recirculating electron accelerator · Jefferson Lab</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-glance" id="glance" aria-labelledby="glance-title">
       <div class="container">
         <div class="section-intro section-intro-wide">
