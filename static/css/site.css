@@ -2215,6 +2215,103 @@ h1 em {
   border: 1px solid var(--line);
 }
 
+/* Fault and cavity identification */
+
+.section-identification {
+  background: var(--canvas);
+  border-top: 1px solid var(--line);
+}
+
+.identification-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+  gap: clamp(42px, 6vw, 82px);
+  align-items: start;
+}
+
+.identification-figure {
+  box-shadow: 0 18px 55px rgba(18, 50, 58, 0.08);
+}
+
+.identification-figure .figure-image-link {
+  padding: 16px;
+}
+
+.identification-figure img {
+  width: 100%;
+  height: auto;
+}
+
+.identification-lead {
+  color: var(--ink-2);
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  line-height: 1.6;
+}
+
+.identification-results {
+  margin-top: 30px;
+  border-block: 1px solid var(--line-dark);
+}
+
+.identification-results article {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 19px 0;
+}
+
+.identification-results article + article {
+  border-top: 1px solid var(--line);
+}
+
+.identification-results strong {
+  color: var(--teal-dark);
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.identification-results span {
+  color: var(--muted);
+  font-size: calc(0.73rem + 2px);
+  line-height: 1.48;
+}
+
+.cavity-result {
+  margin-top: 30px;
+  padding: 22px 24px 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--coral);
+  border-radius: 5px;
+}
+
+.cavity-result .subsection-label {
+  margin-bottom: 5px;
+}
+
+.cavity-result h3 {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.cavity-result > p:last-child {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: calc(0.76rem + 2px);
+  line-height: 1.58;
+}
+
+.cavity-result strong {
+  color: var(--ink-2);
+}
+
 /* Downstream tasks */
 
 .section-tasks {
@@ -2673,6 +2770,14 @@ h1 em {
     margin-inline: auto;
   }
 
+  .identification-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .identification-copy {
+    max-width: 760px;
+  }
+
   .mask-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -3013,6 +3118,15 @@ h1 em {
 
   .imputation-figure .figure-image-link {
     padding: 6px;
+  }
+
+  .identification-figure .figure-image-link {
+    padding: 6px;
+  }
+
+  .identification-results article {
+    grid-template-columns: 1fr;
+    gap: 7px;
   }
 
   .task-pathways article {
