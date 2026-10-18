@@ -19,3 +19,13 @@ The site deploys to GitHub Pages on every push to `main` using the workflow in `
 Expected URL: `https://mahindrautela.github.io/sensoformer/`
 
 All paths are relative so the page also works from a local server or another project-site path.
+
+## Regenerating the imputation animation
+
+The missing-data result animation is built directly from Appendix Figures 4–12 in the paper:
+
+```bash
+osascript -l JavaScript scripts/build-imputation-gif.js
+```
+
+The generator uses macOS PDFKit and ImageIO and writes both the animated GIF and its reduced-motion poster to `static/images/`.

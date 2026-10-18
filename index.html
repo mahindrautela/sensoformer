@@ -171,6 +171,7 @@
         <a href="#method">Method</a>
         <a href="#scaling">Scaling</a>
         <a href="#pretraining">Pretraining</a>
+        <a href="#imputation">Imputation</a>
         <a href="#tasks">Tasks</a>
       </div>
       <a class="nav-paper" href="paper/foundation-models-for-particle-accelerators.pdf">PDF <span aria-hidden="true">↗</span></a>
@@ -590,6 +591,52 @@
             <div><strong>Block-wise</strong><span>Hide a contiguous ≈15% time–channel region</span></div>
           </div>
           <p class="pretraining-note">Together, the masks reproduce isolated dropouts, missing time slices, intermittent sensors, and structured gaps seen in accelerator telemetry.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-imputation" id="imputation" aria-labelledby="imputation-title">
+      <div class="container">
+        <div class="section-intro split-intro">
+          <div><p class="eyebrow">Zero-shot reconstruction</p><h2 id="imputation-title">Seeing what the model restores—not only its score.</h2></div>
+          <p>The paper masks 15% of held-out sensor values and asks the pretrained model to recover them from temporal and cross-channel context. These appendix examples span four accelerator facilities and require no task-specific fine-tuning.</p>
+        </div>
+
+        <div class="imputation-layout">
+          <div class="imputation-copy">
+            <p class="subsection-label">How to read the animation</p>
+            <p class="imputation-lead">Blue traces are the recorded sensor values. Red marks identify the values hidden from the model; green circles show SensOFormer-B’s predictions at exactly those locations.</p>
+
+            <div class="imputation-masks" aria-label="Imputation mask types shown">
+              <article><span aria-hidden="true">···</span><div><strong>Point-wise mask</strong><p>Individual measurements disappear across the window, mimicking scattered dropouts.</p></div></article>
+              <article><span aria-hidden="true">━</span><div><strong>Block-wise mask</strong><p>A contiguous time–channel region disappears, creating a structured gap.</p></div></article>
+            </div>
+
+            <div class="imputation-result">
+              <strong>21 / 24</strong>
+              <p>evaluated dataset–mask settings were led by SensOFormer-B; the smaller SensOFormer-S led the remaining three.</p>
+            </div>
+
+            <div class="imputation-facilities">
+              <p class="subsection-label">Examples in the sequence</p>
+              <p>LANSCE <span>·</span> LHC at CERN <span>·</span> SNS at Oak Ridge <span>·</span> LCLS at SLAC</p>
+            </div>
+          </div>
+
+          <figure class="research-figure imputation-figure">
+            <div class="figure-topline">
+              <div><span>Appendix figures 4–12</span><h3>Nine views of missing-data recovery</h3></div>
+              <a class="zoom-link" href="static/images/missing-data-imputation.gif" data-lightbox data-title="Zero-shot missing-data imputation across LANSCE, LHC, SNS, and LCLS">Enlarge animation <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a>
+            </div>
+            <a class="figure-image-link" href="static/images/missing-data-imputation.gif" data-lightbox data-title="Zero-shot missing-data imputation across LANSCE, LHC, SNS, and LCLS" aria-label="Open the missing-data imputation animation at full resolution">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="static/images/missing-data-imputation-poster.png">
+                <img src="static/images/missing-data-imputation.gif" alt="Animated sequence of nine imputation figures from LANSCE, CERN's LHC, Oak Ridge's SNS, and SLAC's LCLS. Every frame identifies the facility and either a point-wise or block-wise 15-percent mask; blue is ground truth, red is hidden data, and green is the model prediction." width="960" height="1340" loading="lazy" decoding="async">
+              </picture>
+              <span class="figure-hover-label" aria-hidden="true">View full resolution</span>
+            </a>
+            <figcaption><span>15% hidden</span><p>Each frame stays on screen long enough to compare the prediction with the recorded trace. The sequence includes every qualitative imputation figure reported in the appendix.</p></figcaption>
+          </figure>
         </div>
       </div>
     </section>
