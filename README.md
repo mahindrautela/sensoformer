@@ -20,12 +20,12 @@ Expected URL: `https://mahindrautela.github.io/sensoformer/`
 
 All paths are relative so the page also works from a local server or another project-site path.
 
-## Regenerating the imputation animation
+## Regenerating the imputation figures
 
-The missing-data result animation is built directly from Appendix Figures 4–12 in the paper:
+The missing-data result explorer is built directly from Appendix Figures 4–12 in the paper:
 
 ```bash
 osascript -l JavaScript scripts/build-imputation-gif.js
 ```
 
-The generator uses macOS PDFKit and ImageIO and writes both the animated GIF and its reduced-motion poster to `static/images/`.
+The generator uses macOS PDFKit and ImageIO and writes the nine selectable PNG views, an archival animated GIF, and the first-view poster to `static/images/`.

@@ -12,15 +12,15 @@ const pdf = $.PDFDocument.alloc.initWithURL($.NSURL.fileURLWithPath(pdfPath));
 if (!pdf) throw new Error(`Could not open ${pdfPath}`);
 
 const slides = [
-  { page: 15, figure: 4, facility: "LANSCE · 2019–2024", detail: "Los Alamos National Laboratory", mask: "POINT-WISE MASK", plotTop: 170, plotBottom: 1075 },
-  { page: 16, figure: 5, facility: "LANSCE · 2019–2024", detail: "Los Alamos National Laboratory", mask: "BLOCK-WISE MASK" },
-  { page: 17, figure: 6, facility: "LANSCE · 2025", detail: "Los Alamos National Laboratory", mask: "POINT-WISE MASK" },
-  { page: 18, figure: 7, facility: "LANSCE · 2025", detail: "Los Alamos National Laboratory", mask: "BLOCK-WISE MASK" },
-  { page: 19, figure: 8, facility: "LHC · CERN", detail: "Beam-loss monitoring", mask: "POINT-WISE MASK" },
-  { page: 20, figure: 9, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "POINT-WISE MASK" },
-  { page: 21, figure: 10, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "BLOCK-WISE MASK" },
-  { page: 22, figure: 11, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "POINT-WISE MASK" },
-  { page: 23, figure: 12, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "BLOCK-WISE MASK" }
+  { page: 15, figure: 4, facility: "LANSCE · 2019–2024", detail: "Los Alamos National Laboratory", mask: "POINT-WISE MASK", file: "missing-data-imputation-poster.png", plotTop: 170, plotBottom: 1075 },
+  { page: 16, figure: 5, facility: "LANSCE · 2019–2024", detail: "Los Alamos National Laboratory", mask: "BLOCK-WISE MASK", file: "imputation-02-lansce-2019-2024-block-wise.png" },
+  { page: 17, figure: 6, facility: "LANSCE · 2025", detail: "Los Alamos National Laboratory", mask: "POINT-WISE MASK", file: "imputation-03-lansce-2025-point-wise.png" },
+  { page: 18, figure: 7, facility: "LANSCE · 2025", detail: "Los Alamos National Laboratory", mask: "BLOCK-WISE MASK", file: "imputation-04-lansce-2025-block-wise.png" },
+  { page: 19, figure: 8, facility: "LHC · CERN", detail: "Beam-loss monitoring", mask: "POINT-WISE MASK", file: "imputation-05-lhc-cern-point-wise.png" },
+  { page: 20, figure: 9, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "POINT-WISE MASK", file: "imputation-06-sns-point-wise.png" },
+  { page: 21, figure: 10, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "BLOCK-WISE MASK", file: "imputation-07-sns-block-wise.png" },
+  { page: 22, figure: 11, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "POINT-WISE MASK", file: "imputation-08-lcls-point-wise.png" },
+  { page: 23, figure: 12, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "BLOCK-WISE MASK", file: "imputation-09-lcls-block-wise.png" }
 ];
 
 const W = 960;
@@ -177,6 +177,12 @@ const frames = slides.map(renderFrame);
 const poster = bitmap(frames[0]);
 const posterData = poster.representationUsingTypeProperties($.NSBitmapImageFileTypePNG, $({}));
 if (!posterData.writeToFileAtomically(posterPath, true)) throw new Error(`Could not write ${posterPath}`);
+
+slides.slice(1).forEach((slide, index) => {
+  const frameData = bitmap(frames[index + 1]).representationUsingTypeProperties($.NSBitmapImageFileTypePNG, $({}));
+  const framePath = `${repo}/static/images/${slide.file}`;
+  if (!frameData.writeToFileAtomically(framePath, true)) throw new Error(`Could not write ${framePath}`);
+});
 
 const destination = $.CGImageDestinationCreateWithURL(
   $.NSURL.fileURLWithPath(gifPath),

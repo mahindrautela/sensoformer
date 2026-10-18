@@ -605,7 +605,7 @@
 
         <div class="imputation-layout">
           <div class="imputation-copy">
-            <p class="subsection-label">How to read the animation</p>
+            <p class="subsection-label">How to read the figures</p>
             <p class="imputation-lead">Blue traces are the recorded sensor values. Red marks identify the values hidden from the model; green circles show SensOFormer-B’s predictions at exactly those locations.</p>
 
             <div class="imputation-masks" aria-label="Imputation mask types shown">
@@ -627,16 +627,44 @@
           <figure class="research-figure imputation-figure">
             <div class="figure-topline">
               <div><span>Appendix figures 4–12</span><h3>Nine views of missing-data recovery</h3></div>
-              <a class="zoom-link" href="static/images/missing-data-imputation.gif" data-lightbox data-title="Zero-shot missing-data imputation across LANSCE, LHC, SNS, and LCLS">Enlarge animation <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a>
+              <a class="zoom-link" id="imputationZoomLink" href="static/images/missing-data-imputation-poster.png" data-lightbox data-title="LANSCE 2019–2024 · point-wise imputation · Paper Figure 4">Enlarge view <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a>
             </div>
-            <a class="figure-image-link" href="static/images/missing-data-imputation.gif" data-lightbox data-title="Zero-shot missing-data imputation across LANSCE, LHC, SNS, and LCLS" aria-label="Open the missing-data imputation animation at full resolution">
-              <picture>
-                <source media="(prefers-reduced-motion: reduce)" srcset="static/images/missing-data-imputation-poster.png">
-                <img src="static/images/missing-data-imputation.gif" alt="Animated sequence of nine imputation figures from LANSCE, CERN's LHC, Oak Ridge's SNS, and SLAC's LCLS. Every frame identifies the facility and either a point-wise or block-wise 15-percent mask; blue is ground truth, red is hidden data, and green is the model prediction." width="960" height="1340" loading="lazy" decoding="async">
-              </picture>
+
+            <div class="imputation-selector" aria-label="Choose an imputation result">
+              <div class="imputation-selector-row">
+                <p>Facility</p>
+                <div class="imputation-button-group" role="group" aria-label="Facility">
+                  <button type="button" data-imputation-facility="lansce-history" aria-pressed="true">LANSCE <span>2019–24</span></button>
+                  <button type="button" data-imputation-facility="lansce-2025" aria-pressed="false">LANSCE <span>2025</span></button>
+                  <button type="button" data-imputation-facility="lhc" aria-pressed="false">LHC <span>CERN</span></button>
+                  <button type="button" data-imputation-facility="sns" aria-pressed="false">SNS <span>ORNL</span></button>
+                  <button type="button" data-imputation-facility="lcls" aria-pressed="false">LCLS <span>SLAC</span></button>
+                </div>
+              </div>
+              <div class="imputation-selector-row">
+                <p>Mask</p>
+                <div class="imputation-button-group" role="group" aria-label="Mask type">
+                  <button type="button" data-imputation-mask="point" aria-pressed="true">Point-wise</button>
+                  <button type="button" data-imputation-mask="block" aria-pressed="false">Block-wise</button>
+                </div>
+              </div>
+            </div>
+
+            <a class="figure-image-link" id="imputationFigureLink" href="static/images/missing-data-imputation-poster.png" data-lightbox data-title="LANSCE 2019–2024 · point-wise imputation · Paper Figure 4" aria-label="Open the selected missing-data imputation figure at full resolution">
+              <img id="imputationResultImage" src="static/images/missing-data-imputation-poster.png" alt="LANSCE 2019–2024 point-wise imputation with 15 percent of sensor values hidden; blue is ground truth, red is hidden data, and green is the model prediction." width="960" height="1340" decoding="async">
               <span class="figure-hover-label" aria-hidden="true">View full resolution</span>
             </a>
-            <figcaption><span>15% hidden</span><p>Each frame stays on screen long enough to compare the prediction with the recorded trace. The sequence includes every qualitative imputation figure reported in the appendix.</p></figcaption>
+
+            <div class="imputation-stepper">
+              <p id="imputationSelection" aria-live="polite"><strong>LANSCE · 2019–2024</strong><span>Point-wise mask · Paper Fig. 4</span></p>
+              <div>
+                <button type="button" data-imputation-previous aria-label="Show previous imputation figure"><span aria-hidden="true">←</span></button>
+                <output id="imputationCount" aria-label="Selected figure 1 of 9">01 / 09</output>
+                <button type="button" data-imputation-next aria-label="Show next imputation figure"><span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+
+            <figcaption><span>15% hidden</span><p>Choose a facility and mask type to inspect the reported examples without waiting for an animation. The explorer includes every qualitative imputation figure in the appendix.</p></figcaption>
           </figure>
         </div>
       </div>

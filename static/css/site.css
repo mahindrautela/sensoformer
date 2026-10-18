@@ -2205,14 +2205,151 @@ h1 em {
   background: #eef3f0;
 }
 
-.imputation-figure picture {
-  display: block;
-}
-
 .imputation-figure img {
   width: 100%;
   height: auto;
   border: 1px solid var(--line);
+  transition: opacity 150ms ease;
+}
+
+.imputation-figure img.is-loading {
+  opacity: 0.35;
+}
+
+.imputation-selector {
+  padding: 14px 16px;
+  background: #f7f7f3;
+  border-bottom: 1px solid var(--line);
+}
+
+.imputation-selector-row {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.imputation-selector-row + .imputation-selector-row {
+  margin-top: 9px;
+}
+
+.imputation-selector-row > p {
+  padding-top: 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.imputation-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.imputation-button-group button {
+  min-height: 30px;
+  padding: 6px 10px;
+  color: var(--teal-dark);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font: 700 0.64rem/1.2 var(--sans);
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  transition: color 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.imputation-button-group button span {
+  margin-left: 3px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.imputation-button-group button:hover:not(:disabled) {
+  border-color: var(--teal);
+}
+
+.imputation-button-group button[aria-pressed="true"] {
+  color: var(--white);
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+}
+
+.imputation-button-group button[aria-pressed="true"] span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.imputation-button-group button:disabled {
+  color: var(--faint);
+  background: transparent;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.imputation-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 16px;
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.imputation-stepper > p strong,
+.imputation-stepper > p span {
+  display: block;
+}
+
+.imputation-stepper > p strong {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.imputation-stepper > p span {
+  margin-top: 1px;
+  color: var(--muted);
+  font-size: calc(0.66rem + 2px);
+}
+
+.imputation-stepper > div {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+}
+
+.imputation-stepper button {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  place-items: center;
+  color: var(--teal-dark);
+  background: var(--teal-soft);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.imputation-stepper button:hover {
+  color: var(--white);
+  background: var(--teal-dark);
+}
+
+.imputation-stepper output {
+  min-width: 50px;
+  color: var(--teal-dark);
+  font-family: var(--mono);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
 }
 
 /* Fault and cavity identification */
@@ -3122,6 +3259,28 @@ h1 em {
 
   .imputation-figure .figure-image-link {
     padding: 6px;
+  }
+
+  .imputation-selector {
+    padding: 12px;
+  }
+
+  .imputation-selector-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .imputation-selector-row > p {
+    padding-top: 0;
+  }
+
+  .imputation-button-group button {
+    padding-inline: 9px;
+  }
+
+  .imputation-stepper {
+    gap: 10px;
+    padding-inline: 12px;
   }
 
   .identification-figure .figure-image-link {
