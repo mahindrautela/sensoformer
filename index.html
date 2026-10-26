@@ -375,6 +375,7 @@
               <li><strong>SNS</strong><span>Pulsed proton accelerator and neutron source · Oak Ridge</span></li>
               <li><strong>LCLS</strong><span>Electron linac and x-ray free-electron laser · SLAC</span></li>
               <li><strong>CEBAF</strong><span>Recirculating electron accelerator · Jefferson Lab</span></li>
+              <li><strong>Booster</strong><span>Gradient Magnet Power Supply telemetry · Fermilab</span></li>
             </ul>
           </div>
         </div>
@@ -569,7 +570,7 @@
         <div class="imputation-layout">
           <figure class="research-figure imputation-figure">
             <div class="figure-topline">
-              <div><span>Appendix figures 4–12</span><h3>Nine views of missing-data recovery</h3></div>
+              <div><span>Appendix figures 4–13</span><h3>Ten views of missing-data recovery</h3></div>
               <a class="zoom-link" id="imputationZoomLink" href="static/images/missing-data-imputation-poster.png" data-lightbox data-title="LANSCE 2019–2024 · point-wise imputation · Paper Figure 4">Enlarge view <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a>
             </div>
 
@@ -582,6 +583,7 @@
                   <button type="button" data-imputation-facility="lhc" aria-pressed="false">LHC <span>CERN</span></button>
                   <button type="button" data-imputation-facility="sns" aria-pressed="false">SNS <span>ORNL</span></button>
                   <button type="button" data-imputation-facility="lcls" aria-pressed="false">LCLS <span>SLAC</span></button>
+                  <button type="button" data-imputation-facility="gmps-booster" aria-pressed="false">Booster <span>Fermilab</span></button>
                 </div>
               </div>
               <div class="imputation-selector-row">
@@ -589,6 +591,7 @@
                 <div class="imputation-button-group" role="group" aria-label="Mask type">
                   <button type="button" data-imputation-mask="point" aria-pressed="true">Point-wise</button>
                   <button type="button" data-imputation-mask="block" aria-pressed="false">Block-wise</button>
+                  <button type="button" data-imputation-mask="combined" aria-pressed="false">Combined</button>
                 </div>
               </div>
             </div>
@@ -602,12 +605,11 @@
               <p id="imputationSelection" aria-live="polite"><strong>LANSCE · 2019–2024</strong><span>Point-wise mask · Paper Fig. 4</span></p>
               <div>
                 <button type="button" data-imputation-previous aria-label="Show previous imputation figure"><span aria-hidden="true">←</span></button>
-                <output id="imputationCount" aria-label="Selected figure 1 of 9">01 / 09</output>
+                <output id="imputationCount" aria-label="Selected figure 1 of 10">01 / 10</output>
                 <button type="button" data-imputation-next aria-label="Show next imputation figure"><span aria-hidden="true">→</span></button>
               </div>
             </div>
 
-            <figcaption><span>15% hidden</span><p>Choose a facility and mask type to inspect the reported examples without waiting for an animation. The explorer includes every qualitative imputation figure in the appendix.</p></figcaption>
           </figure>
         </div>
       </div>

@@ -66,7 +66,8 @@
       { facility: 'sns', mask: 'point', facilityLabel: 'SNS · Oak Ridge', maskLabel: 'Point-wise mask', figure: 9, src: 'static/images/imputation-06-sns-point-wise.png' },
       { facility: 'sns', mask: 'block', facilityLabel: 'SNS · Oak Ridge', maskLabel: 'Block-wise mask', figure: 10, src: 'static/images/imputation-07-sns-block-wise.png' },
       { facility: 'lcls', mask: 'point', facilityLabel: 'LCLS · SLAC', maskLabel: 'Point-wise mask', figure: 11, src: 'static/images/imputation-08-lcls-point-wise.png' },
-      { facility: 'lcls', mask: 'block', facilityLabel: 'LCLS · SLAC', maskLabel: 'Block-wise mask', figure: 12, src: 'static/images/imputation-09-lcls-block-wise.png' }
+      { facility: 'lcls', mask: 'block', facilityLabel: 'LCLS · SLAC', maskLabel: 'Block-wise mask', figure: 12, src: 'static/images/imputation-09-lcls-block-wise.png' },
+      { facility: 'gmps-booster', mask: 'combined', facilityLabel: 'Booster · Fermilab', maskLabel: 'Point-wise + block-wise masks', figure: 13, src: 'static/images/imputation-10-gmps-booster-fermilab.png' }
     ];
     const facilityButtons = [...document.querySelectorAll('[data-imputation-facility]')];
     const maskButtons = [...document.querySelectorAll('[data-imputation-mask]')];

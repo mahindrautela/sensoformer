@@ -20,13 +20,14 @@ const slides = [
   { page: 25, figure: 9, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "POINT-WISE MASK", file: "imputation-06-sns-point-wise.png" },
   { page: 26, figure: 10, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "BLOCK-WISE MASK", file: "imputation-07-sns-block-wise.png" },
   { page: 27, figure: 11, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "POINT-WISE MASK", file: "imputation-08-lcls-point-wise.png" },
-  { page: 28, figure: 12, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "BLOCK-WISE MASK", file: "imputation-09-lcls-block-wise.png" }
+  { page: 28, figure: 12, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "BLOCK-WISE MASK", file: "imputation-09-lcls-block-wise.png" },
+  { page: 29, figure: 13, facility: "BOOSTER · FERMILAB", detail: "Gradient Magnet Power Supply", mask: "POINT-WISE + BLOCK-WISE", file: "imputation-10-gmps-booster-fermilab.png", plotTop: 230, plotBottom: 1215 }
 ];
 
 const W = 960;
 const H = 1340;
 const paperSize = $.NSMakeSize(1224, 1584);
-// A shared crop for Appendix Figures 4–12: plots only, excluding paper headers and captions.
+// A shared crop for Appendix Figures 4–13: plots only, excluding paper headers and captions.
 const plotAreaX = 54;
 const plotAreaY = 104;
 const plotAreaWidth = 852;
