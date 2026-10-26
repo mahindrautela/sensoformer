@@ -28,6 +28,7 @@
   --container: 1280px;
   --reading: 760px;
   --nav-height: 66px;
+  --readable-small: calc(0.87rem + 2px);
 }
 
 * {
@@ -336,7 +337,7 @@ h1 em {
   max-width: 650px;
   margin-top: 13px;
   color: var(--muted);
-  font-size: calc(0.75rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.5;
 }
 
@@ -371,7 +372,7 @@ h1 em {
   padding: 10px 12px 2px;
   color: var(--muted);
   font-family: var(--serif);
-  font-size: calc(0.86rem + 2px);
+  font-size: var(--readable-small);
   font-style: italic;
   text-align: center;
 }
@@ -1132,7 +1133,7 @@ h1 em {
 .application-list p {
   margin-top: 7px;
   color: var(--muted);
-  font-size: calc(0.72rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.5;
 }
 
@@ -1153,7 +1154,7 @@ h1 em {
 
 .facility-list span {
   color: var(--muted);
-  font-size: calc(0.74rem + 2px);
+  font-size: var(--readable-small);
 }
 
 @keyframes target-pulse {
@@ -1228,7 +1229,7 @@ h1 em {
 .challenge-list p {
   margin-top: 8px;
   color: var(--muted);
-  font-size: calc(0.87rem + 2px);
+  font-size: var(--readable-small);
 }
 
 /* Method */
@@ -1270,7 +1271,7 @@ h1 em {
 .method-sequence p {
   margin-top: 10px;
   color: var(--muted);
-  font-size: calc(0.84rem + 2px);
+  font-size: var(--readable-small);
 }
 
 .method-glyph {
@@ -1495,7 +1496,7 @@ h1 em {
   color: var(--muted);
   background: #f7f7f3;
   border-top: 1px solid var(--line);
-  font-size: calc(0.8rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.55;
 }
 
@@ -1518,7 +1519,7 @@ h1 em {
 .method-details p:last-child {
   margin-top: 7px;
   color: var(--muted);
-  font-size: calc(0.76rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.5;
 }
 
@@ -1623,7 +1624,7 @@ h1 em {
 .equation-note {
   margin-top: 14px;
   color: var(--muted);
-  font-size: calc(0.72rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.6;
 }
 
@@ -1656,7 +1657,7 @@ h1 em {
   display: block;
   margin-top: 4px;
   color: var(--muted);
-  font-size: calc(0.7rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.5;
 }
 
@@ -1665,7 +1666,7 @@ h1 em {
   padding-left: 14px;
   color: var(--muted);
   border-left: 2px solid var(--coral);
-  font-size: calc(0.76rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.65;
 }
 
@@ -1750,14 +1751,14 @@ h1 em {
   display: block;
   margin-top: 3px;
   color: var(--muted);
-  font-size: calc(0.68rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.4;
 }
 
 .corpus-scale {
   color: var(--ink-2);
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: var(--readable-small);
   text-align: right;
 }
 
@@ -1778,7 +1779,7 @@ h1 em {
 
 .recipe-list p {
   color: var(--muted);
-  font-size: calc(0.78rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.55;
 }
 
@@ -1813,7 +1814,7 @@ h1 em {
   display: block;
   margin-top: 7px;
   color: var(--muted);
-  font-size: calc(0.72rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.45;
 }
 
@@ -1824,7 +1825,7 @@ h1 em {
   padding-left: 14px;
   color: var(--muted);
   border-left: 2px solid var(--coral);
-  font-size: calc(0.76rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.65;
 }
 
@@ -1958,7 +1959,7 @@ h1 em {
 .imputation-stepper > p span {
   margin-top: 1px;
   color: var(--muted);
-  font-size: calc(0.66rem + 2px);
+  font-size: var(--readable-small);
 }
 
 .imputation-stepper > div {
@@ -2062,7 +2063,7 @@ h1 em {
 
 .identification-results span {
   color: var(--muted);
-  font-size: calc(0.73rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.48;
 }
 
@@ -2089,7 +2090,7 @@ h1 em {
 .cavity-result > p:last-child {
   margin-top: 8px;
   color: var(--muted);
-  font-size: calc(0.76rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.58;
 }
 
@@ -2136,7 +2137,7 @@ h1 em {
 
 .task-description {
   color: var(--muted);
-  font-size: calc(0.82rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.65;
 }
 
@@ -2158,7 +2159,7 @@ h1 em {
   display: block;
   margin-top: 7px;
   color: var(--muted);
-  font-size: calc(0.68rem + 2px);
+  font-size: var(--readable-small);
   line-height: 1.45;
 }
 
@@ -2195,7 +2196,7 @@ h1 em {
 .footer-main > div:first-child p {
   max-width: 450px;
   margin-top: 10px;
-  font-size: calc(0.78rem + 2px);
+  font-size: var(--readable-small);
 }
 
 .footer-links {
@@ -2222,7 +2223,7 @@ h1 em {
   gap: 30px;
   padding-block: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.13);
-  font-size: calc(0.68rem + 2px);
+  font-size: var(--readable-small);
 }
 
 /* Lightbox */
@@ -2345,7 +2346,8 @@ h1 em {
   }
 
   .pretraining-grid {
-    gap: 52px;
+    grid-template-columns: 1fr;
+    gap: 58px;
   }
 
   .task-pathways article {
