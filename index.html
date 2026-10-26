@@ -68,21 +68,13 @@
           <p class="affiliation">Los Alamos National Laboratory</p>
         </div>
 
-        <div class="hero-actions" aria-label="Publication resources">
-          <a class="button button-primary" href="paper/foundation-models-for-particle-accelerators.pdf">
-            <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M5.5 2.5h6l3 3v12h-9zM11.5 2.5v3h3M8 10h4M8 13h4"/></svg>
-            Paper
-          </a>
-          <a class="button" href="https://openreview.net/forum?id=sdBsI9MA5a" target="_blank" rel="noreferrer">
-            OpenReview
-            <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7 13 13.5 6.5M8.5 6.5h5v5M13 14.5H5.5v-8H9"/></svg>
-          </a>
+        <div class="hero-actions" aria-label="Project resources">
           <a class="button" href="https://github.com/mahindrautela/sensoformer" target="_blank" rel="noreferrer">
             Website source
             <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7 13 13.5 6.5M8.5 6.5h5v5M13 14.5H5.5v-8H9"/></svg>
           </a>
         </div>
-        <p class="resource-qualifier">The linked PDF and OpenReview record are the earlier ICML 2026 workshop version; the NeurIPS proceedings PDF is not yet included in this repository.</p>
+        <p class="resource-qualifier">Paper and OpenReview links will be added when the public records are available.</p>
       </div>
 
       <figure class="hero-figure">
@@ -175,7 +167,6 @@
         <a href="#fault-identification">Fault ID</a>
         <a href="#tasks">Tasks</a>
       </div>
-      <a class="nav-paper" href="paper/foundation-models-for-particle-accelerators.pdf">PDF <span aria-hidden="true">↗</span></a>
     </div>
     <div class="reading-progress" aria-hidden="true"><span></span></div>
   </nav>
@@ -442,7 +433,7 @@
             <div class="glance-icon glance-icon-impact" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             <p class="card-label">Evidence</p>
             <h3>One representation transfers to four operational tasks.</h3>
-            <p>Across five facilities, SensOFormer leads 21 of 24 zero-shot imputation settings, passes 20 of 21 early-fault tests, and reaches 84.80% / 84.01% cavity / fault accuracy.</p>
+            <p>Across six facilities, SensOFormer-B leads 25 of 28 zero-shot imputation settings and passes all 21 early-fault tests; SensOFormer-XTi reaches 84.80% / 84.01% cavity / fault accuracy.</p>
           </article>
         </div>
       </div>
@@ -484,14 +475,14 @@
 
         <figure class="research-figure architecture-figure">
           <div class="figure-topline">
-            <div><span>Figure 02</span><h3>SensOFormer architecture and transfer strategy</h3></div>
+            <div><span>Figure 01</span><h3>SensOFormer architecture and transfer strategy</h3></div>
             <a class="zoom-link" href="static/images/sensoformer-architecture.webp" data-lightbox data-title="SensOFormer architecture and transfer strategy">Enlarge figure <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a>
           </div>
           <a class="figure-image-link" href="static/images/sensoformer-architecture.webp" data-lightbox data-title="SensOFormer architecture and transfer strategy" aria-label="Open the full-resolution SensOFormer architecture figure">
             <img src="static/images/sensoformer-architecture.webp" alt="The paper's architecture figure showing four masked-denoising strategies, a permutation-invariant set encoder, latent transformer, permutation-equivariant set decoder, and downstream reconstruction and classification heads." width="2400" height="2786" decoding="async">
             <span class="figure-hover-label" aria-hidden="true">View full resolution</span>
           </a>
-          <figcaption><span>Paper Fig. 2</span><p>The encoder turns the channels observed at each time step into a compact latent; the processor models time; the decoder preserves the identities of queried output channels. The pretrained encoder–processor backbone is reused for downstream tasks.</p></figcaption>
+          <figcaption><span>Paper Fig. 1</span><p>The encoder turns the channels observed at each time step into a compact latent; the processor models time; the decoder preserves the identities of queried output channels. The pretrained encoder–processor backbone is reused for downstream tasks.</p></figcaption>
         </figure>
 
         <div class="method-details">
@@ -614,7 +605,7 @@
             </div>
 
             <div class="imputation-result">
-              <strong>21 / 24</strong>
+              <strong>25 / 28</strong>
               <p>evaluated dataset–mask settings were led by SensOFormer-B; the smaller SensOFormer-S led the remaining three.</p>
             </div>
 
@@ -674,30 +665,30 @@
       <div class="container">
         <div class="section-intro split-intro">
           <div><p class="eyebrow">Supervised transfer · CEBAF</p><h2 id="fault-identification-title">Fault identification with fewer expert labels.</h2></div>
-          <p>Once a faulty event is detected, operators still need to identify what failed. SensOFormer-XTi transfers its pretrained sensor representation to eight CEBAF fault classes using a lightweight temporal classification head.</p>
+          <p>Once a faulty event is detected, operators still need to identify what failed. SensOFormer transfers its pretrained sensor representation to eight CEBAF fault classes using a lightweight temporal classification head.</p>
         </div>
 
         <div class="identification-layout">
           <figure class="research-figure identification-figure">
             <div class="figure-topline">
-              <div><span>Paper figure 1</span><h3>Fault accuracy as labeled data increases</h3></div>
-              <a class="zoom-link" href="static/images/data-efficiency.webp" data-lightbox data-title="CEBAF fault-identification accuracy versus labeled training-data fraction">Enlarge figure <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a>
+              <div><span>Paper figure 2</span><h3>Fault accuracy as labeled data increases</h3></div>
+              <a class="zoom-link" href="static/images/data-efficiency.png" data-lightbox data-title="CEBAF fault-identification accuracy versus labeled training-data fraction">Enlarge figure <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7.5 3.5h-4v4M12.5 3.5h4v4M7.5 16.5h-4v-4M12.5 16.5h4v-4"/></svg></a>
             </div>
-            <a class="figure-image-link" href="static/images/data-efficiency.webp" data-lightbox data-title="CEBAF fault-identification accuracy versus labeled training-data fraction" aria-label="Open the fault-identification data-efficiency figure at full resolution">
-              <img src="static/images/data-efficiency.webp" alt="Fault-identification accuracy rises from about 66 percent with 10 percent of labeled training data to 84.01 percent with all training data. At 25 percent of the data, it already exceeds the prior 74.10-percent benchmark." width="1800" height="1333" decoding="async">
+            <a class="figure-image-link" href="static/images/data-efficiency.png" data-lightbox data-title="CEBAF fault-identification accuracy versus labeled training-data fraction" aria-label="Open the fault-identification data-efficiency figure at full resolution">
+              <img src="static/images/data-efficiency.png" alt="Fault-identification accuracy rises with labeled training data for both SensOFormer-XTi and SensOFormer-B. Both exceed the 74.10-percent benchmark with 25 percent of the labels, and the B model reaches 85.69 percent with all labels." width="1340" height="1000" decoding="async">
               <span class="figure-hover-label" aria-hidden="true">View full resolution</span>
             </a>
-            <figcaption><span>8 fault classes</span><p>The blue curve is SensOFormer-XTi test accuracy; the orange dashed line marks the 74.10% prior deep-learning benchmark. The held-out test set remains fixed as the labeled training fraction changes.</p></figcaption>
+            <figcaption><span>8 fault classes</span><p>Blue shows SensOFormer-XTi and green shows SensOFormer-B; the orange dashed line marks the 74.10% prior deep-learning benchmark. The held-out test set remains fixed as the labeled training fraction changes.</p></figcaption>
           </figure>
 
           <div class="identification-copy">
             <p class="subsection-label">The label-efficiency result</p>
-            <p class="identification-lead">With only one quarter of the labeled fault examples, the transferred model already moves above the previous benchmark. More labels continue to help, but pretraining makes the scarce-data regime useful much earlier.</p>
+            <p class="identification-lead">With only one quarter of the labeled fault examples, both transferred models move above the previous benchmark. More labels continue to help, and the larger B backbone reaches the strongest full-data result.</p>
 
             <div class="identification-results" aria-label="Fault-identification results">
-              <article><strong>25%</strong><span>of labeled training data is enough to exceed the prior benchmark</span></article>
-              <article><strong>84.01%</strong><span>fault-identification accuracy with the full training set</span></article>
-              <article><strong>+9.91 pts</strong><span>improvement over the 74.10% fault benchmark at full data</span></article>
+              <article><strong>25%</strong><span>of labeled training data is enough for both models to exceed the prior benchmark</span></article>
+              <article><strong>85.69%</strong><span>SensOFormer-B accuracy with the full training set</span></article>
+              <article><strong>+11.59 pts</strong><span>improvement over the 74.10% fault benchmark at full data</span></article>
             </div>
 
             <aside class="cavity-result" aria-labelledby="cavity-result-title">
@@ -721,22 +712,22 @@
           <article>
             <span class="task-index">01</span>
             <div class="task-heading"><p class="task-mode">Zero-shot · reconstruction</p><h3>Missing-data imputation</h3></div>
-            <p class="task-description">Recover masked sensor values from temporal and cross-channel context across six held-out test settings. No downstream labels or task-specific training are required.</p>
-            <div class="task-outcome"><strong>21 / 24</strong><span>dataset–mask settings led by the B model</span></div>
+            <p class="task-description">Recover masked sensor values from temporal and cross-channel context across seven evaluation datasets spanning six facilities. No downstream labels or task-specific training are required.</p>
+            <div class="task-outcome"><strong>25 / 28</strong><span>dataset–mask settings led by the B model</span></div>
           </article>
 
           <article>
             <span class="task-index">02</span>
             <div class="task-heading"><p class="task-mode">Frozen backbone · binary head</p><h3>Anomaly detection</h3></div>
-            <p class="task-description">A 0.22M-parameter temporal CNN head learns normal-versus-faulty HVCM-SNS behavior while the pretrained XTi encoder and processor remain frozen.</p>
-            <div class="task-outcome"><strong>20 / 21</strong><span>induced early-fault tests passed · 95.2%</span></div>
+            <p class="task-description">A lightweight temporal CNN head learns normal-versus-faulty HVCM-SNS behavior while the pretrained encoder and processor remain frozen. Scaling the backbone from XTi to B improves early warning.</p>
+            <div class="task-outcome"><strong>21 / 21</strong><span>induced early-fault tests passed by the B model · 100%</span></div>
           </article>
 
           <article>
             <span class="task-index">03</span>
             <div class="task-heading"><p class="task-mode">Pretrained backbone · multiclass heads</p><h3>Cavity &amp; fault identification</h3></div>
             <p class="task-description">Separate lightweight heads identify the first faulting CEBAF cavity across 9 classes and the fault type across 8 classes. The fault benchmark is surpassed with only 25% of the labeled training set.</p>
-            <div class="task-outcome"><strong>84.80% / 84.01%</strong><span>cavity / fault test accuracy</span></div>
+            <div class="task-outcome"><strong>84.80% / 84.01%</strong><span>XTi cavity / fault test accuracy</span></div>
           </article>
         </div>
 
@@ -748,7 +739,7 @@
   <footer class="site-footer">
     <div class="container footer-main">
       <div><a class="footer-mark" href="#top">SensOFormer</a><p>A foundation-model approach to heterogeneous particle-accelerator telemetry.</p></div>
-      <div class="footer-links"><a href="paper/foundation-models-for-particle-accelerators.pdf">Paper</a><a href="https://openreview.net/forum?id=sdBsI9MA5a" target="_blank" rel="noreferrer">OpenReview</a><a href="https://github.com/mahindrautela/sensoformer" target="_blank" rel="noreferrer">Source</a></div>
+      <div class="footer-links"><a href="https://github.com/mahindrautela/sensoformer" target="_blank" rel="noreferrer">Source</a></div>
     </div>
     <div class="container footer-meta"><p>Mahindra Singh Rautela &amp; Alexander Scheinker · Los Alamos National Laboratory</p><p>NeurIPS 2026 · This website was made using Codex.</p></div>
   </footer>

@@ -12,15 +12,15 @@ const pdf = $.PDFDocument.alloc.initWithURL($.NSURL.fileURLWithPath(pdfPath));
 if (!pdf) throw new Error(`Could not open ${pdfPath}`);
 
 const slides = [
-  { page: 15, figure: 4, facility: "LANSCE · 2019–2024", detail: "Los Alamos National Laboratory", mask: "POINT-WISE MASK", file: "missing-data-imputation-poster.png", plotTop: 170, plotBottom: 1075 },
-  { page: 16, figure: 5, facility: "LANSCE · 2019–2024", detail: "Los Alamos National Laboratory", mask: "BLOCK-WISE MASK", file: "imputation-02-lansce-2019-2024-block-wise.png" },
-  { page: 17, figure: 6, facility: "LANSCE · 2025", detail: "Los Alamos National Laboratory", mask: "POINT-WISE MASK", file: "imputation-03-lansce-2025-point-wise.png" },
-  { page: 18, figure: 7, facility: "LANSCE · 2025", detail: "Los Alamos National Laboratory", mask: "BLOCK-WISE MASK", file: "imputation-04-lansce-2025-block-wise.png" },
-  { page: 19, figure: 8, facility: "LHC · CERN", detail: "Beam-loss monitoring", mask: "POINT-WISE MASK", file: "imputation-05-lhc-cern-point-wise.png" },
-  { page: 20, figure: 9, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "POINT-WISE MASK", file: "imputation-06-sns-point-wise.png" },
-  { page: 21, figure: 10, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "BLOCK-WISE MASK", file: "imputation-07-sns-block-wise.png" },
-  { page: 22, figure: 11, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "POINT-WISE MASK", file: "imputation-08-lcls-point-wise.png" },
-  { page: 23, figure: 12, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "BLOCK-WISE MASK", file: "imputation-09-lcls-block-wise.png" }
+  { page: 20, figure: 4, facility: "LANSCE · 2019–2024", detail: "Los Alamos National Laboratory", mask: "POINT-WISE MASK", file: "missing-data-imputation-poster.png", plotTop: 280, plotBottom: 1245 },
+  { page: 21, figure: 5, facility: "LANSCE · 2019–2024", detail: "Los Alamos National Laboratory", mask: "BLOCK-WISE MASK", file: "imputation-02-lansce-2019-2024-block-wise.png" },
+  { page: 22, figure: 6, facility: "LANSCE · 2025", detail: "Los Alamos National Laboratory", mask: "POINT-WISE MASK", file: "imputation-03-lansce-2025-point-wise.png" },
+  { page: 23, figure: 7, facility: "LANSCE · 2025", detail: "Los Alamos National Laboratory", mask: "BLOCK-WISE MASK", file: "imputation-04-lansce-2025-block-wise.png" },
+  { page: 24, figure: 8, facility: "LHC · CERN", detail: "Beam-loss monitoring", mask: "POINT-WISE MASK", file: "imputation-05-lhc-cern-point-wise.png" },
+  { page: 25, figure: 9, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "POINT-WISE MASK", file: "imputation-06-sns-point-wise.png" },
+  { page: 26, figure: 10, facility: "SNS · OAK RIDGE", detail: "High-voltage converter modulators", mask: "BLOCK-WISE MASK", file: "imputation-07-sns-block-wise.png" },
+  { page: 27, figure: 11, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "POINT-WISE MASK", file: "imputation-08-lcls-point-wise.png" },
+  { page: 28, figure: 12, facility: "LCLS · SLAC", detail: "Radio-frequency stations", mask: "BLOCK-WISE MASK", file: "imputation-09-lcls-block-wise.png" }
 ];
 
 const W = 960;
@@ -141,11 +141,12 @@ function renderFrame(slide, index) {
   // The plot is rendered from the paper at 2× page resolution before being placed here.
   roundedRect($.NSMakeRect(48, 98, 864, 1131), 6, palette.white, palette.line, 1);
   const pageImage = pdf.pageAtIndex(slide.page).thumbnailOfSizeForBox(paperSize, $.kPDFDisplayBoxMediaBox);
-  const top = slide.plotTop || 125;
-  const bottom = slide.plotBottom || 1320;
-  const sourceWidth = 940;
+  const top = slide.plotTop || 190;
+  const bottom = slide.plotBottom || 1160;
+  const sourceX = slide.plotX || 210;
+  const sourceWidth = slide.plotWidth || 800;
   const sourceHeight = bottom - top;
-  const sourceCrop = $.NSMakeRect(105, 1584 - bottom, sourceWidth, sourceHeight);
+  const sourceCrop = $.NSMakeRect(sourceX, 1584 - bottom, sourceWidth, sourceHeight);
   const scale = Math.min(plotAreaWidth / sourceWidth, plotAreaHeight / sourceHeight);
   const plotRect = $.NSMakeRect(
     plotAreaX + (plotAreaWidth - sourceWidth * scale) / 2,
