@@ -57,8 +57,6 @@
         </div>
         <h1><span>SensOFormer:</span> Foundation Models for <em>Particle Accelerators.</em></h1>
         <p class="hero-claim">To our knowledge, the first foundation model for particle-accelerator telemetry.</p>
-        <p class="hero-dek">A self-supervised transformer learns one shared representation from five accelerators—even as sensor sets change—and transfers it to reconstruction and operational diagnostics.</p>
-
         <div class="author-block">
           <p class="authors">
             <a href="https://mahindrautela.github.io/" target="_blank" rel="noreferrer">Mahindra Singh Rautela</a>
@@ -158,14 +156,13 @@
       <a class="nav-mark" href="#top" aria-label="SensOFormer home">S<span>O</span>F</a>
       <div class="nav-links">
         <a href="#accelerators">Accelerators</a>
-        <a href="#glance">Overview</a>
         <a href="#challenge">Challenge</a>
         <a href="#method">Method</a>
         <a href="#scaling">Scaling</a>
         <a href="#pretraining">Pretraining</a>
+        <a href="#tasks">Tasks</a>
         <a href="#imputation">Imputation</a>
         <a href="#fault-identification">Fault ID</a>
-        <a href="#tasks">Tasks</a>
       </div>
     </div>
     <div class="reading-progress" aria-hidden="true"><span></span></div>
@@ -355,19 +352,7 @@
             </svg>
           </div>
 
-          <figcaption>Follow one compact three-particle bunch from source to experiment: the equal-size particles accelerate, deepen from orange to red, and compress even closer together; magnets bend and focus them while diagnostics measure the beam.</figcaption>
         </figure>
-
-        <section class="accelerator-scale-note" aria-labelledby="accelerator-scale-title">
-          <div>
-            <p class="subsection-label">Accelerators at scale</p>
-            <h3 id="accelerator-scale-title">Kilometers of precision infrastructure.</h3>
-          </div>
-          <div class="accelerator-scale-copy">
-            <p>Particle accelerators use electric fields to increase the energy of charged particles and magnetic fields to bend, steer, and focus them into controlled beams. Flagship research accelerators are billion-dollar scientific facilities whose thousands of components must operate together with extraordinary precision.</p>
-            <p>At Los Alamos, the backbone of LANSCE is an 800 MeV linear accelerator approximately one kilometer long; at CERN, the Large Hadron Collider guides protons and ions around a 27-kilometer ring. Continuous diagnostics and control systems keep these enormous machines stable, safe, and useful for experiments.</p>
-          </div>
-        </section>
 
         <div class="accelerator-context-grid">
           <div>
@@ -396,49 +381,6 @@
       </div>
     </section>
 
-    <section class="section section-glance" id="glance" aria-labelledby="glance-title">
-      <div class="container">
-        <div class="section-intro section-intro-wide">
-          <p class="eyebrow">Research at a glance</p>
-          <h2 id="glance-title">From specialist models to one reusable accelerator representation.</h2>
-        </div>
-
-        <div class="glance-flow">
-          <article class="glance-card">
-            <div class="glance-index">01</div>
-            <div class="glance-icon glance-icon-specialists" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-            <p class="card-label">Motivation</p>
-            <h3>Prior accelerator ML is largely specialist.</h3>
-            <p>Successful models target individual facilities and tasks. Yet accelerators reuse related RF, magnet, vacuum, timing, diagnostic, and control systems—an opportunity to learn once and transfer.</p>
-          </article>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <article class="glance-card">
-            <div class="glance-index">02</div>
-            <div class="glance-icon glance-icon-problem" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-            <p class="card-label">Data challenge</p>
-            <h3>Operational telemetry has no single fixed schema.</h3>
-            <p>Sensor sets and ordering, sampling rates, window lengths, physical units, noise, and operating conditions vary across facilities, subsystems, and acquisitions.</p>
-          </article>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <article class="glance-card featured">
-            <div class="glance-index">03</div>
-            <div class="glance-icon glance-icon-model" aria-hidden="true"><span></span><span></span><span></span></div>
-            <p class="card-label">Shared backbone</p>
-            <h3>Pretrain once across sensors, facilities, and time.</h3>
-            <p>SensOFormer encodes channels as a set, models their temporal context, and learns by reconstructing clean values from masked, noisy telemetry.</p>
-          </article>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <article class="glance-card">
-            <div class="glance-index">04</div>
-            <div class="glance-icon glance-icon-impact" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-            <p class="card-label">Evidence</p>
-            <h3>One representation transfers to four operational tasks.</h3>
-            <p>Across six facilities, SensOFormer-B leads 25 of 28 zero-shot imputation settings and passes all 21 early-fault tests; SensOFormer-XTi reaches 84.80% / 84.01% cavity / fault accuracy.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section section-challenge" id="challenge" aria-labelledby="challenge-title">
       <div class="container editorial-grid">
         <div class="section-rail">
@@ -461,9 +403,8 @@
 
     <section class="section section-method" id="method" aria-labelledby="method-title">
       <div class="container">
-        <div class="section-intro split-intro">
-          <div><p class="eyebrow">The method</p><h2 id="method-title">Set-aware in channels.<br>Attentive through time.</h2></div>
-          <p>SensOFormer combines permutation-invariant sensor encoding, latent temporal processing, and permutation-equivariant reconstruction. The result is one architecture that accommodates different channel sets and sequence structures without channel-dimension padding.</p>
+        <div class="section-intro">
+          <p class="eyebrow">The method</p><h2 id="method-title">Set-aware in channels.<br>Attentive through time.</h2>
         </div>
 
         <div class="method-sequence" aria-label="SensOFormer processing stages">
@@ -546,9 +487,8 @@
 
     <section class="section section-pretraining" id="pretraining" aria-labelledby="pretraining-title">
       <div class="container">
-        <div class="section-intro split-intro">
-          <div><p class="eyebrow">Pretraining data</p><h2 id="pretraining-title">Heterogeneity is the training signal.</h2></div>
-          <p>SensOFormer learns from five accelerator data families without forcing them into one global channel schema. Each source keeps its own sensors, sequence structure, and operational context.</p>
+        <div class="section-intro">
+          <p class="eyebrow">Pretraining data</p><h2 id="pretraining-title">Datasets used in pretraining.</h2>
         </div>
 
         <div class="pretraining-grid">
@@ -582,39 +522,51 @@
             <div><strong>Channel-wise</strong><span>Hide 60% of one sensor’s time steps</span></div>
             <div><strong>Block-wise</strong><span>Hide a contiguous ≈15% time–channel region</span></div>
           </div>
-          <p class="pretraining-note">Together, the masks reproduce isolated dropouts, missing time slices, intermittent sensors, and structured gaps seen in accelerator telemetry.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-tasks" id="tasks" aria-labelledby="tasks-title">
+      <div class="container">
+        <div class="section-intro split-intro">
+          <div><p class="eyebrow">Downstream tasks</p><h2 id="tasks-title">One representation, three modes of use.</h2></div>
+          <p>The pretrained encoder and temporal processor form the shared backbone. SensOFormer either reuses its reconstruction decoder directly or adds a compact task-specific head.</p>
+        </div>
+
+        <div class="task-pathways">
+          <article>
+            <span class="task-index">01</span>
+            <div class="task-heading"><p class="task-mode">Zero-shot · reconstruction</p><h3>Missing-data imputation</h3></div>
+            <p class="task-description">Recover masked sensor values from temporal and cross-channel context across seven evaluation datasets spanning six facilities. No downstream labels or task-specific training are required.</p>
+            <div class="task-outcome"><strong>25 / 28</strong><span>dataset–mask settings led by the B model</span></div>
+          </article>
+
+          <article>
+            <span class="task-index">02</span>
+            <div class="task-heading"><p class="task-mode">Frozen backbone · binary head</p><h3>Anomaly detection</h3></div>
+            <p class="task-description">A lightweight temporal CNN head learns normal-versus-faulty HVCM-SNS behavior while the pretrained encoder and processor remain frozen. Scaling the backbone from XTi to B improves early warning.</p>
+            <div class="task-outcome"><strong>21 / 21</strong><span>induced early-fault tests passed by the B model · 100%</span></div>
+          </article>
+
+          <article>
+            <span class="task-index">03</span>
+            <div class="task-heading"><p class="task-mode">Pretrained backbone · multiclass heads</p><h3>Cavity &amp; fault identification</h3></div>
+            <p class="task-description">Separate lightweight heads identify the first faulting CEBAF cavity across 9 classes and the fault type across 8 classes. The fault benchmark is surpassed with only 25% of the labeled training set.</p>
+            <div class="task-outcome"><strong>84.80% / 84.01%</strong><span>XTi cavity / fault test accuracy</span></div>
+          </article>
+        </div>
+
+        <p class="transfer-note"><strong>Transfer principle:</strong> preserve the learned sensor representation; change only the output interface needed by the operational task.</p>
       </div>
     </section>
 
     <section class="section section-imputation" id="imputation" aria-labelledby="imputation-title">
       <div class="container">
-        <div class="section-intro split-intro">
-          <div><p class="eyebrow">Zero-shot reconstruction</p><h2 id="imputation-title">Seeing what the model restores—not only its score.</h2></div>
-          <p>The paper masks 15% of held-out sensor values and asks the pretrained model to recover them from temporal and cross-channel context. These appendix examples span four accelerator facilities and require no task-specific fine-tuning.</p>
+        <div class="section-intro">
+          <p class="eyebrow">Zero-shot reconstruction</p><h2 id="imputation-title">Seeing what the model restores—not only its score.</h2>
         </div>
 
         <div class="imputation-layout">
-          <div class="imputation-copy">
-            <p class="subsection-label">How to read the figures</p>
-            <p class="imputation-lead">Blue traces are the recorded sensor values. Red marks identify the values hidden from the model; green circles show SensOFormer-B’s predictions at exactly those locations.</p>
-
-            <div class="imputation-masks" aria-label="Imputation mask types shown">
-              <article><span aria-hidden="true">···</span><div><strong>Point-wise mask</strong><p>Individual measurements disappear across the window, mimicking scattered dropouts.</p></div></article>
-              <article><span aria-hidden="true">━</span><div><strong>Block-wise mask</strong><p>A contiguous time–channel region disappears, creating a structured gap.</p></div></article>
-            </div>
-
-            <div class="imputation-result">
-              <strong>25 / 28</strong>
-              <p>evaluated dataset–mask settings were led by SensOFormer-B; the smaller SensOFormer-S led the remaining three.</p>
-            </div>
-
-            <div class="imputation-facilities">
-              <p class="subsection-label">Examples in the sequence</p>
-              <p>LANSCE <span>·</span> LHC at CERN <span>·</span> SNS at Oak Ridge <span>·</span> LCLS at SLAC</p>
-            </div>
-          </div>
-
           <figure class="research-figure imputation-figure">
             <div class="figure-topline">
               <div><span>Appendix figures 4–12</span><h3>Nine views of missing-data recovery</h3></div>
@@ -663,9 +615,8 @@
 
     <section class="section section-identification" id="fault-identification" aria-labelledby="fault-identification-title">
       <div class="container">
-        <div class="section-intro split-intro">
-          <div><p class="eyebrow">Supervised transfer · CEBAF</p><h2 id="fault-identification-title">Fault identification with fewer expert labels.</h2></div>
-          <p>Once a faulty event is detected, operators still need to identify what failed. SensOFormer transfers its pretrained sensor representation to eight CEBAF fault classes using a lightweight temporal classification head.</p>
+        <div class="section-intro">
+          <p class="eyebrow">Supervised transfer · CEBAF</p><h2 id="fault-identification-title">Fault identification with fewer expert labels.</h2>
         </div>
 
         <div class="identification-layout">
@@ -701,39 +652,6 @@
       </div>
     </section>
 
-    <section class="section section-tasks" id="tasks" aria-labelledby="tasks-title">
-      <div class="container">
-        <div class="section-intro split-intro">
-          <div><p class="eyebrow">Downstream tasks</p><h2 id="tasks-title">One representation, three modes of use.</h2></div>
-          <p>The pretrained encoder and temporal processor form the shared backbone. SensOFormer either reuses its reconstruction decoder directly or adds a compact task-specific head.</p>
-        </div>
-
-        <div class="task-pathways">
-          <article>
-            <span class="task-index">01</span>
-            <div class="task-heading"><p class="task-mode">Zero-shot · reconstruction</p><h3>Missing-data imputation</h3></div>
-            <p class="task-description">Recover masked sensor values from temporal and cross-channel context across seven evaluation datasets spanning six facilities. No downstream labels or task-specific training are required.</p>
-            <div class="task-outcome"><strong>25 / 28</strong><span>dataset–mask settings led by the B model</span></div>
-          </article>
-
-          <article>
-            <span class="task-index">02</span>
-            <div class="task-heading"><p class="task-mode">Frozen backbone · binary head</p><h3>Anomaly detection</h3></div>
-            <p class="task-description">A lightweight temporal CNN head learns normal-versus-faulty HVCM-SNS behavior while the pretrained encoder and processor remain frozen. Scaling the backbone from XTi to B improves early warning.</p>
-            <div class="task-outcome"><strong>21 / 21</strong><span>induced early-fault tests passed by the B model · 100%</span></div>
-          </article>
-
-          <article>
-            <span class="task-index">03</span>
-            <div class="task-heading"><p class="task-mode">Pretrained backbone · multiclass heads</p><h3>Cavity &amp; fault identification</h3></div>
-            <p class="task-description">Separate lightweight heads identify the first faulting CEBAF cavity across 9 classes and the fault type across 8 classes. The fault benchmark is surpassed with only 25% of the labeled training set.</p>
-            <div class="task-outcome"><strong>84.80% / 84.01%</strong><span>XTi cavity / fault test accuracy</span></div>
-          </article>
-        </div>
-
-        <p class="transfer-note"><strong>Transfer principle:</strong> preserve the learned sensor representation; change only the output interface needed by the operational task.</p>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
