@@ -262,6 +262,7 @@
   const lightbox = document.querySelector('#figureLightbox');
   const lightboxImage = lightbox?.querySelector('.lightbox-stage img');
   const lightboxTitle = lightbox?.querySelector('#lightboxTitle');
+  const lightboxOriginal = lightbox?.querySelector('#lightboxOriginal');
   const lightboxClose = lightbox?.querySelector('.lightbox-close');
   const lightboxLinks = [...document.querySelectorAll('[data-lightbox]')];
   let lightboxTrigger = null;
@@ -280,6 +281,7 @@
         lightboxImage.src = link.href;
         lightboxImage.alt = title;
         lightboxTitle.textContent = title;
+        lightboxOriginal.href = link.href;
         document.body.classList.add('lightbox-open');
         lightbox.showModal();
         lightboxClose.focus({ preventScroll: true });
@@ -293,6 +295,7 @@
     lightbox.addEventListener('close', () => {
       document.body.classList.remove('lightbox-open');
       lightboxImage.removeAttribute('src');
+      lightboxOriginal.removeAttribute('href');
       lightboxTrigger?.focus({ preventScroll: true });
     });
   }

@@ -1837,7 +1837,7 @@ h1 em {
 }
 
 .imputation-layout {
-  width: min(100%, 960px);
+  width: min(100%, 1200px);
   min-width: 0;
   margin-inline: auto;
 }
@@ -2287,11 +2287,31 @@ h1 em {
 }
 
 .lightbox-toolbar p {
+  flex: 1 1 auto;
+  min-width: 0;
   overflow: hidden;
   font-family: var(--serif);
   font-size: 1rem;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.lightbox-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.lightbox-original {
+  color: #d5e2df;
+  font: 700 0.68rem var(--sans);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.lightbox-original:hover {
+  color: var(--white);
 }
 
 .lightbox-close {
@@ -2906,6 +2926,28 @@ h1 em {
 
   .lightbox-stage img {
     min-width: 950px;
+  }
+
+  .lightbox-toolbar {
+    gap: 8px;
+    padding-inline: 12px 8px;
+  }
+
+  .lightbox-actions {
+    gap: 6px;
+  }
+
+  .lightbox-original {
+    font-size: 0;
+  }
+
+  .lightbox-original::after {
+    content: "PNG";
+    font-size: 0.64rem;
+  }
+
+  .lightbox-close span {
+    display: none;
   }
 }
 
