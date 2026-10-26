@@ -1838,27 +1838,51 @@ h1 em {
 
 .imputation-layout {
   width: min(100%, 960px);
+  min-width: 0;
   margin-inline: auto;
 }
 
 .imputation-figure {
+  min-width: 0;
   box-shadow: 0 18px 55px rgba(18, 50, 58, 0.09);
 }
 
-.imputation-figure .figure-image-link {
+.imputation-panel-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  gap: 10px;
   padding: 14px;
   background: #eef3f0;
 }
 
-.imputation-figure img {
-  width: 100%;
-  height: auto;
+.imputation-panel-link {
+  position: relative;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  background: var(--white);
   border: 1px solid var(--line);
+  border-radius: 3px;
+}
+
+.imputation-panel-link img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   transition: opacity 150ms ease;
 }
 
-.imputation-figure img.is-loading {
+.imputation-panel-link img.is-loading {
   opacity: 0.35;
+}
+
+.imputation-panel-link:hover .figure-hover-label,
+.imputation-panel-link:focus-visible .figure-hover-label {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .imputation-selector {
@@ -2809,7 +2833,7 @@ h1 em {
     border-left: 0;
   }
 
-  .imputation-figure .figure-image-link {
+  .imputation-panel-grid {
     padding: 6px;
   }
 

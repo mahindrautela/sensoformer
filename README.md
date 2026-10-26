@@ -20,12 +20,6 @@ Expected URL: `https://mahindrautela.github.io/sensoformer/`
 
 All paths are relative so the page also works from a local server or another project-site path.
 
-## Regenerating the imputation figures
+## Camera-ready figure sources
 
-The missing-data result explorer is built directly from Appendix Figures 4–12 in the paper:
-
-```bash
-osascript -l JavaScript scripts/build-imputation-gif.js
-```
-
-The generator uses macOS PDFKit and ImageIO and writes the nine selectable PNG views, an archival animated GIF, and the first-view poster to `static/images/`.
+The website uses the original PNG assets referenced by `neurips_camera_ready.tex`. The three main-text figures and the 50 panels composing Appendix Figures 4–13 are preserved under `static/images/paper-source/`; the missing-data explorer displays those source panels directly without rasterizing them from the PDF.
