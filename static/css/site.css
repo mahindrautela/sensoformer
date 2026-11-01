@@ -8,7 +8,7 @@
   --canvas: #f3f0e8;
   --white: #ffffff;
   --wash: #e8efeb;
-  --wash-blue: #e8f0f2;
+  --wash-blue: #f3f7f8;
   --line: #ced8d4;
   --line-dark: #aabbb7;
   --teal: #087d79;
@@ -16,11 +16,10 @@
   --teal-soft: #d8ece7;
   --acceptance-green: #247847;
   --acceptance-green-soft: #e4f0e7;
-  --coral: #c9694d;
-  --coral-soft: #f1ddd4;
+  --coral: #bccbc8;
+  --coral-soft: #faf7f5;
   --violet: #715e8a;
   --violet-soft: #e5deed;
-  --amber: #b98226;
   --shadow: 0 20px 55px rgba(18, 50, 58, 0.10);
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -76,7 +75,7 @@ a {
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid #e6a856;
+  outline: 3px solid var(--teal);
   outline-offset: 4px;
 }
 
@@ -234,7 +233,7 @@ h1 {
 h1 > span {
   display: block;
   margin-bottom: 0.12em;
-  color: var(--coral);
+  color: var(--ink-2);
 }
 
 h1 em {
@@ -246,7 +245,7 @@ h1 em {
 .hero-claim {
   max-width: 620px;
   margin-top: 22px;
-  color: var(--coral);
+  color: var(--teal-dark);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -365,7 +364,7 @@ h1 em {
   width: 70px;
   height: 14px;
   background: var(--coral-soft);
-  border: 1px solid rgba(201, 105, 77, 0.35);
+  border: 1px solid rgba(174, 190, 187, 0.5);
   border-radius: 2px;
 }
 
@@ -504,7 +503,7 @@ h1 em {
 }
 
 .scroll-cue span:last-child {
-  color: var(--coral);
+  color: var(--teal);
   font-size: 1rem;
 }
 
@@ -537,7 +536,7 @@ h1 em {
 }
 
 .nav-mark span {
-  color: var(--coral);
+  color: var(--teal);
 }
 
 .nav-links {
@@ -851,7 +850,7 @@ h1 em {
 
 .rf-cavities rect {
   fill: var(--coral-soft);
-  stroke: #d08a72;
+  stroke: #c7d2cf;
   stroke-width: 1.2;
 }
 
@@ -951,17 +950,17 @@ h1 em {
 }
 
 .smiley-particle .particle-body {
-  stroke: rgba(116, 45, 35, 0.72);
+  stroke: rgba(94, 112, 110, 0.58);
   stroke-width: 1;
 }
 
 .smiley-particle .particle-eye {
-  fill: #6f3028;
+  fill: #4f6868;
 }
 
 .smiley-particle .particle-smile {
   fill: none;
-  stroke: #6f3028;
+  stroke: #4f6868;
   stroke-linecap: round;
   stroke-width: 1.15;
 }
@@ -1051,8 +1050,8 @@ h1 em {
 }
 
 .element-actions .action-rf rect {
-  fill: #f8e8e1;
-  stroke: #dfab98;
+  fill: #fbf9f7;
+  stroke: #d8dfdd;
 }
 
 .element-actions .action-rf .action-effect {
@@ -1117,7 +1116,7 @@ h1 em {
 }
 
 .application-list article > span {
-  color: var(--coral);
+  color: var(--teal-dark);
   font-family: var(--mono);
   font-size: 0.62rem;
 }
@@ -1222,7 +1221,7 @@ h1 em {
 }
 
 .challenge-number {
-  color: var(--coral);
+  color: var(--teal-dark);
   font-family: var(--mono);
   font-size: 0.72rem;
 }
@@ -1413,7 +1412,7 @@ h1 em {
 .research-figure figcaption > span {
   display: block;
   margin-bottom: 4px;
-  color: var(--coral);
+  color: var(--teal-dark);
   font-family: var(--mono);
   font-size: 0.65rem;
   font-weight: 700;
@@ -1734,7 +1733,7 @@ h1 em {
 
 .corpus-index,
 .task-index {
-  color: var(--coral);
+  color: var(--teal-dark);
   font-family: var(--mono);
   font-size: 0.64rem;
 }

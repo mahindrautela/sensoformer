@@ -23,7 +23,7 @@
     <rect x="70" y="59" width="209" height="34" rx="17" fill="#ffffff" fill-opacity=".68" stroke="#95b6ad"/>
     <circle cx="90" cy="76" r="5" fill="#087d79"/>
     <text x="106" y="81" fill="#075c5c" font-size="13" font-weight="700" letter-spacing="1.4">NEURIPS 2026 · ACCEPTED</text>
-    <text x="70" y="142" fill="#c9694d" font-size="15" font-weight="700" letter-spacing="2.4">SENSOFORMER</text>
+    <text x="70" y="142" fill="#087d79" font-size="15" font-weight="700" letter-spacing="2.4">SENSOFORMER</text>
   </g>
 
   <g font-family="Georgia, Times New Roman, serif" fill="#102f39">
@@ -40,10 +40,10 @@
       <text x="0" y="15">LANL</text><text x="0" y="51">CERN</text><text x="0" y="87">ORNL</text><text x="0" y="123">SLAC</text><text x="0" y="159">JLAB</text>
     </g>
     <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-      <path d="M58 10h21l7-12 9 24 8-12h39" stroke="#c9694d"/>
+      <path d="M58 10h21l7-12 9 24 8-12h39" stroke="#bccbc8"/>
       <path d="M58 46h17l7-8 8 16 9-8h43" stroke="#715e8a"/>
       <path d="M58 82h19l6-14 9 28 8-14h42" stroke="#087d79"/>
-      <path d="M58 118h21l7-10 8 20 8-10h40" stroke="#c9694d"/>
+      <path d="M58 118h21l7-10 8 20 8-10h40" stroke="#bccbc8"/>
       <path d="M58 154h17l7-12 9 24 8-12h43" stroke="#715e8a"/>
     </g>
   </g>
