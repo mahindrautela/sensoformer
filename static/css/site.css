@@ -684,9 +684,9 @@ h1 em {
 
 .summary-layout {
   display: grid;
-  grid-template-columns: minmax(230px, 0.38fr) minmax(0, 1fr);
+  grid-template-columns: minmax(230px, 0.3fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(42px, 7vw, 100px);
+  gap: clamp(42px, 5vw, 72px);
 }
 
 .summary-copy {
@@ -710,7 +710,7 @@ h1 em {
 }
 
 .summary-video {
-  width: min(100%, 600px);
+  width: min(100%, 900px);
   justify-self: center;
 }
 
@@ -2474,6 +2474,24 @@ h1 em {
     padding: 10px 10px 8px;
   }
 
+  .summary-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 42px;
+  }
+
+  .summary-copy {
+    max-width: 640px;
+  }
+
+  .summary-copy h2 {
+    max-width: 620px;
+  }
+
+  .summary-video {
+    width: min(100%, 800px);
+    justify-self: center;
+  }
+
   .method-sequence {
     grid-template-columns: 1fr 1fr;
   }
@@ -2545,21 +2563,8 @@ h1 em {
     font-size: clamp(calc(3.075rem - 2px), calc(8vw - 4px), calc(4.375rem - 2px));
   }
 
-  .summary-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 42px;
-  }
-
-  .summary-copy {
-    max-width: 640px;
-  }
-
-  .summary-copy h2 {
-    max-width: 620px;
-  }
-
   .summary-video {
-    width: min(100%, 560px);
+    width: min(100%, 720px);
     justify-self: center;
   }
 
