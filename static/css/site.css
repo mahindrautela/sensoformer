@@ -1935,7 +1935,7 @@ h1 em {
 }
 
 .imputation-layout {
-  width: min(100%, 1200px);
+  width: min(100%, 680px);
   min-width: 0;
   margin-inline: auto;
 }
