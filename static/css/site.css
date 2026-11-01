@@ -673,6 +673,80 @@ h1 em {
   line-height: 1.5;
 }
 
+/* Research summary */
+
+.section-summary {
+  background: linear-gradient(180deg, #f7f8f5 0%, var(--paper) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-layout {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.38fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(42px, 7vw, 100px);
+}
+
+.summary-copy {
+  max-width: 370px;
+}
+
+.summary-copy .eyebrow {
+  margin-bottom: 22px;
+}
+
+.summary-copy h2 {
+  font-size: clamp(2.6rem, 4.3vw, 4.6rem);
+  line-height: 0.98;
+}
+
+.summary-lead {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: var(--readable-small);
+  line-height: 1.7;
+}
+
+.summary-video {
+  width: min(100%, 880px);
+  justify-self: end;
+}
+
+.summary-player-shell {
+  padding: 10px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 24px 65px rgba(18, 50, 58, 0.1);
+}
+
+.summary-player-shell video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0c242b;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.summary-video figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 13px 5px 0;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.summary-video figcaption span:last-child {
+  flex: 0 0 auto;
+  color: var(--teal-dark);
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
 /* Accelerator primer */
 
 .section-accelerator {
@@ -2468,6 +2542,24 @@ h1 em {
     font-size: clamp(calc(3.075rem - 2px), calc(8vw - 4px), calc(4.375rem - 2px));
   }
 
+  .summary-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 42px;
+  }
+
+  .summary-copy {
+    max-width: 640px;
+  }
+
+  .summary-copy h2 {
+    max-width: 620px;
+  }
+
+  .summary-video {
+    width: min(100%, 760px);
+    justify-self: center;
+  }
+
   .hero-figure {
     min-width: 0;
     width: min(100%, 650px);
@@ -2697,6 +2789,29 @@ h1 em {
   .hero-figure figcaption {
     padding-inline: 8px;
     font-size: calc(0.72rem + 2px);
+  }
+
+  .summary-copy h2 {
+    font-size: clamp(2.3rem, 11vw, 3rem);
+  }
+
+  .summary-player-shell {
+    padding: 5px;
+    border-radius: 9px;
+  }
+
+  .summary-player-shell video {
+    border-radius: 5px;
+  }
+
+  .summary-video figcaption {
+    display: block;
+    padding-inline: 2px;
+  }
+
+  .summary-video figcaption span:last-child {
+    display: block;
+    margin-top: 3px;
   }
 
   .nav-links {

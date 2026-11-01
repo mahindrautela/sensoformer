@@ -83,10 +83,10 @@
             Poster
             <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7 13 13.5 6.5M8.5 6.5h5v5M13 14.5H5.5v-8H9"/></svg>
           </a>
-          <span class="button button-disabled" aria-disabled="true" title="Explainer video coming soon">
+          <a class="button" href="https://drive.google.com/file/d/1zSWJT3fKlvZxJa3loXCAxGccXsfo620C/view?usp=sharing" target="_blank" rel="noreferrer">
             Explainer video
             <svg aria-hidden="true" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="m8 6.5 6 3.5-6 3.5z"/></svg>
-          </span>
+          </a>
         </div>
       </div>
 
@@ -163,13 +163,14 @@
         <figcaption>Operational telemetry is encoded as sensor sets—not a single fixed channel vector.</figcaption>
       </figure>
     </div>
-    <a class="scroll-cue" href="#accelerators"><span>Start with accelerators</span><span aria-hidden="true">↓</span></a>
+    <a class="scroll-cue" href="#summary"><span>Watch the summary</span><span aria-hidden="true">↓</span></a>
   </header>
 
   <nav class="section-nav" aria-label="Page sections">
     <div class="container nav-inner">
       <a class="nav-mark" href="#top" aria-label="SensOFormer home">S<span>O</span>F</a>
       <div class="nav-links">
+        <a href="#summary">Summary</a>
         <a href="#accelerators">Accelerators</a>
         <a href="#challenge">Challenge</a>
         <a href="#method">Method</a>
@@ -184,6 +185,26 @@
   </nav>
 
   <main id="main-content">
+    <section class="section section-summary" id="summary" aria-labelledby="summary-title">
+      <div class="container summary-layout">
+        <div class="summary-copy">
+          <p class="eyebrow">Research overview · 3 minutes</p>
+          <h2 id="summary-title">Summary of the research</h2>
+          <p class="summary-lead">A concise walkthrough of the motivation, key idea, method, implementation, and results behind SensOFormer.</p>
+        </div>
+
+        <figure class="summary-video">
+          <div class="summary-player-shell">
+            <video controls playsinline preload="metadata" poster="static/images/sensoformer-explainer-poster.png" aria-describedby="summary-caption">
+              <source src="static/videos/sensoformer-explainer.mp4" type="video/mp4">
+              <p>Your browser cannot play this video. <a href="static/videos/sensoformer-explainer.mp4">Download the MP4</a>.</p>
+            </video>
+          </div>
+          <figcaption id="summary-caption"><span>Motivation, key idea, method, implementation, and results.</span><span>3:00</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section section-accelerator" id="accelerators" aria-labelledby="accelerators-title">
       <div class="container">
         <div class="section-intro accelerator-title-intro">
