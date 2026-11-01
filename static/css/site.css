@@ -110,7 +110,7 @@ h2 {
 }
 
 h2 {
-  font-size: clamp(2.05rem, 3.15vw, 3.3rem);
+  font-size: clamp(2.35rem, 3.6vw, 3.8rem);
   line-height: 1.08;
 }
 
@@ -676,7 +676,8 @@ h1 em {
 /* Research summary */
 
 .section-summary {
-  padding-block: clamp(72px, 8vw, 110px);
+  padding-top: clamp(72px, 8vw, 110px);
+  padding-bottom: clamp(44px, 4vw, 64px);
   background: linear-gradient(180deg, #f7f8f5 0%, var(--paper) 100%);
   border-bottom: 1px solid var(--line);
 }
@@ -751,6 +752,7 @@ h1 em {
 /* Accelerator primer */
 
 .section-accelerator {
+  padding-top: clamp(48px, 5vw, 76px);
   background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
@@ -2725,12 +2727,21 @@ h1 em {
   }
 
   h2 {
-    font-size: clamp(2rem, 8.5vw, 2.65rem);
+    font-size: clamp(2.2rem, 9vw, 3rem);
     line-height: 1.08;
   }
 
   .section {
     padding-block: 80px;
+  }
+
+  .section-summary {
+    padding-top: 64px;
+    padding-bottom: 42px;
+  }
+
+  .section-accelerator {
+    padding-top: 48px;
   }
 
   .site-header {
