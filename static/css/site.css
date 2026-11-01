@@ -322,6 +322,15 @@ h1 em {
   transform: translateY(-2px);
 }
 
+.button-disabled,
+.button-disabled:hover {
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.38);
+  border-color: var(--line-dark);
+  cursor: not-allowed;
+  transform: none;
+}
+
 .button-primary {
   color: var(--white);
   background: var(--ink);
