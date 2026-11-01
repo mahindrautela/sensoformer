@@ -196,7 +196,7 @@
           <div class="accelerator-visual-scroll" tabindex="0" aria-label="Scrollable accelerator diagram">
             <svg class="accelerator-diagram" viewBox="0 0 1120 480" role="img" aria-labelledby="accelerator-diagram-title accelerator-diagram-desc" focusable="false">
               <title id="accelerator-diagram-title">How an accelerator beamline works</title>
-              <desc id="accelerator-diagram-desc">A compact bunch of three equal-size smiling particles leaves a source, accelerates, shifts through soft neutral tones, and compresses more tightly together as radio-frequency cavities add energy. The bunch bends through a dipole magnet, narrows through quadrupole magnets, passes through beam diagnostics, and reaches an experiment. Animated signals from RF probes, magnet-current monitors, beam-position monitors, and beam-loss monitors travel to the control system.</desc>
+              <desc id="accelerator-diagram-desc">A compact bunch of three equal-size smiling particles leaves a source, accelerates, shifts from orange to red, and compresses more tightly together as radio-frequency cavities add energy. The bunch bends through a dipole magnet, narrows through quadrupole magnets, passes through beam diagnostics, and reaches an experiment. Animated signals from RF probes, magnet-current monitors, beam-position monitors, and beam-loss monitors travel to the control system.</desc>
               <defs>
                 <linearGradient id="beamGradient" x1="0" x2="1">
                   <stop offset="0" stop-color="#bccbc8" stop-opacity="0.28"/>
@@ -211,8 +211,8 @@
                   <feGaussianBlur stdDeviation="2.2" result="blur"/>
                   <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
-                <path id="beamTrajectory" d="M120 190H430C455 190 475 214 500 218L972 286"/>
-                <clipPath id="acceleratorBeamClip"><rect x="108" y="158" width="872" height="150" rx="18"/></clipPath>
+                <path id="beamTrajectory" d="M130 190H430C455 190 475 214 500 218L972 286"/>
+                <clipPath id="acceleratorBeamClip"><rect x="126" y="158" width="854" height="150" rx="18"/></clipPath>
                 <marker id="telemetryArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z"/></marker>
                 <marker id="energyArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0l10 5-10 5z"/></marker>
                 <marker id="fieldArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0l10 5-10 5z"/></marker>
@@ -237,8 +237,8 @@
               </g>
 
               <path class="unbent-reference" d="M405 190H545" aria-hidden="true"/>
-              <path class="beam-pipe" d="M105 190H430C455 190 475 214 500 218L985 288" aria-hidden="true"/>
-              <path class="beam-core" d="M105 190H430C455 190 475 214 500 218L985 288" aria-hidden="true"/>
+              <path class="beam-pipe" d="M132 190H430C455 190 475 214 500 218L985 288" aria-hidden="true"/>
+              <path class="beam-core" d="M132 190H430C455 190 475 214 500 218L985 288" aria-hidden="true"/>
 
               <g class="energy-scale" aria-hidden="true">
                 <text x="160" y="126">LOW ENERGY</text>
@@ -247,10 +247,12 @@
               </g>
 
               <g class="particle-source" aria-hidden="true">
-                <rect x="54" y="151" width="58" height="78" rx="9"/>
-                <path d="M68 166h29M68 178h29M68 214h29"/>
-                <circle cx="83" cy="190" r="11"/>
-                <path d="M112 174h16v32h-16"/>
+                <rect class="source-nozzle" x="108" y="174" width="26" height="32" rx="3"/>
+                <rect class="source-housing" x="52" y="146" width="64" height="88" rx="13"/>
+                <path class="source-details" d="M68 163h32M68 176h32M68 216h32"/>
+                <circle class="source-aperture" cx="84" cy="191" r="12"/>
+                <circle class="source-aperture-core" cx="84" cy="191" r="3"/>
+                <path class="source-emission" d="M114 190h20"/>
               </g>
 
               <g class="rf-cavities" aria-hidden="true">
@@ -314,19 +316,19 @@
 
               <g clip-path="url(#acceleratorBeamClip)" aria-hidden="true">
                 <g class="smiley-particle">
-                  <circle class="particle-body" r="8"><animate attributeName="fill" dur="5s" repeatCount="indefinite" values="#e7eceb;#dce4e2;#cdd9d6;#bccbc8" keyTimes="0;0.46;0.72;1"/></circle>
+                  <circle class="particle-body" r="8"><animate attributeName="fill" dur="5s" repeatCount="indefinite" values="#f4a340;#ea7938;#d95034;#b52f2c" keyTimes="0;0.46;0.72;1"/></circle>
                   <circle class="particle-eye" cx="-2.7" cy="-1.8" r="0.9"/><circle class="particle-eye" cx="2.7" cy="-1.8" r="0.9"/>
                   <path class="particle-smile" d="M-3 1.2Q0 4.2 3 1.2"/>
                   <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear" keyPoints="0.044;0.25;0.58;0.985" keyTimes="0;0.46;0.72;1"><mpath href="#beamTrajectory"/></animateMotion>
                 </g>
                 <g class="smiley-particle">
-                  <circle class="particle-body" r="8"><animate attributeName="fill" dur="5s" repeatCount="indefinite" values="#e7eceb;#dce4e2;#cdd9d6;#bccbc8" keyTimes="0;0.46;0.72;1"/></circle>
+                  <circle class="particle-body" r="8"><animate attributeName="fill" dur="5s" repeatCount="indefinite" values="#f4a340;#ea7938;#d95034;#b52f2c" keyTimes="0;0.46;0.72;1"/></circle>
                   <circle class="particle-eye" cx="-2.7" cy="-1.8" r="0.9"/><circle class="particle-eye" cx="2.7" cy="-1.8" r="0.9"/>
                   <path class="particle-smile" d="M-3 1.2Q0 4.2 3 1.2"/>
                   <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear" keyPoints="0.022;0.229;0.56;0.969" keyTimes="0;0.46;0.72;1"><mpath href="#beamTrajectory"/></animateMotion>
                 </g>
                 <g class="smiley-particle">
-                  <circle class="particle-body" r="8"><animate attributeName="fill" dur="5s" repeatCount="indefinite" values="#e7eceb;#dce4e2;#cdd9d6;#bccbc8" keyTimes="0;0.46;0.72;1"/></circle>
+                  <circle class="particle-body" r="8"><animate attributeName="fill" dur="5s" repeatCount="indefinite" values="#f4a340;#ea7938;#d95034;#b52f2c" keyTimes="0;0.46;0.72;1"/></circle>
                   <circle class="particle-eye" cx="-2.7" cy="-1.8" r="0.9"/><circle class="particle-eye" cx="2.7" cy="-1.8" r="0.9"/>
                   <path class="particle-smile" d="M-3 1.2Q0 4.2 3 1.2"/>
                   <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.208;0.54;0.953" keyTimes="0;0.46;0.72;1"><mpath href="#beamTrajectory"/></animateMotion>

@@ -23,7 +23,7 @@
     <rect x="70" y="59" width="209" height="34" rx="17" fill="#ffffff" fill-opacity=".68" stroke="#95b6ad"/>
     <circle cx="90" cy="76" r="5" fill="#087d79"/>
     <text x="106" y="81" fill="#075c5c" font-size="13" font-weight="700" letter-spacing="1.4">NEURIPS 2026 · ACCEPTED</text>
-    <text x="70" y="142" fill="#087d79" font-size="15" font-weight="700" letter-spacing="2.4">SENSOFORMER</text>
+    <text x="70" y="142" fill="#c9694d" font-size="15" font-weight="700" letter-spacing="2.4">SENSOFORMER</text>
   </g>
 
   <g font-family="Georgia, Times New Roman, serif" fill="#102f39">
