@@ -676,6 +676,7 @@ h1 em {
 /* Research summary */
 
 .section-summary {
+  padding-block: clamp(72px, 8vw, 110px);
   background: linear-gradient(180deg, #f7f8f5 0%, var(--paper) 100%);
   border-bottom: 1px solid var(--line);
 }
@@ -708,7 +709,7 @@ h1 em {
 }
 
 .summary-video {
-  width: min(100%, 880px);
+  width: min(100%, 720px);
   justify-self: end;
 }
 
@@ -2556,7 +2557,7 @@ h1 em {
   }
 
   .summary-video {
-    width: min(100%, 760px);
+    width: min(100%, 680px);
     justify-self: center;
   }
 
