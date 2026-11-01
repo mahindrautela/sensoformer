@@ -710,8 +710,8 @@ h1 em {
 }
 
 .summary-video {
-  width: min(100%, 720px);
-  justify-self: end;
+  width: min(100%, 600px);
+  justify-self: center;
 }
 
 .summary-player-shell {
@@ -2559,7 +2559,7 @@ h1 em {
   }
 
   .summary-video {
-    width: min(100%, 680px);
+    width: min(100%, 560px);
     justify-self: center;
   }
 
