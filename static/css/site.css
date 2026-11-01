@@ -324,8 +324,8 @@ h1 em {
 
 .button-disabled,
 .button-disabled:hover {
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.38);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.62);
   border-color: var(--line-dark);
   cursor: not-allowed;
   transform: none;
@@ -340,14 +340,6 @@ h1 em {
 .button-primary:hover {
   color: var(--white);
   background: var(--teal-dark);
-}
-
-.resource-qualifier {
-  max-width: 650px;
-  margin-top: 13px;
-  color: var(--muted);
-  font-size: var(--readable-small);
-  line-height: 1.5;
 }
 
 .hero-figure {
@@ -2674,10 +2666,6 @@ h1 em {
   .button {
     padding-inline: 12px;
     font-size: 0.75rem;
-  }
-
-  .resource-qualifier {
-    font-size: calc(0.7rem + 2px);
   }
 
   .hero-figure {
