@@ -2460,7 +2460,6 @@ body svg text {
   fill: #000000 !important;
 }
 
-.venue-line,
 .button,
 .button:hover,
 .button-disabled,
@@ -2471,12 +2470,66 @@ body svg text {
 .hero-figure::before,
 .research-figure figcaption,
 .figure-hover-label,
-.imputation-button-group button,
-.imputation-button-group button[aria-pressed="true"],
-.imputation-stepper button,
-.imputation-stepper button:hover,
 .skip-link {
   background: var(--white);
+}
+
+/* Preserve the original accents requested for the hero and result controls. */
+.venue-line {
+  color: #28464d !important;
+  background: var(--acceptance-green-soft);
+}
+
+.venue-line span {
+  color: #28464d !important;
+}
+
+.venue-line strong {
+  color: var(--acceptance-green) !important;
+}
+
+.site-header h1 {
+  color: #102f39 !important;
+}
+
+.site-header h1 > span {
+  color: var(--particle-orange) !important;
+}
+
+.site-header h1 em {
+  color: var(--teal-dark) !important;
+}
+
+.imputation-button-group button,
+.imputation-stepper button,
+.imputation-stepper output {
+  color: var(--teal-dark) !important;
+}
+
+.imputation-button-group button span {
+  color: #6a7c7e !important;
+}
+
+.imputation-button-group button[aria-pressed="true"] {
+  color: var(--white) !important;
+  background: var(--teal-dark);
+}
+
+.imputation-button-group button[aria-pressed="true"] span {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.imputation-button-group button:disabled {
+  color: #93a09f !important;
+}
+
+.imputation-stepper button {
+  background: var(--teal-soft);
+}
+
+.imputation-stepper button:hover {
+  color: var(--white) !important;
+  background: var(--teal-dark);
 }
 
 .skip-link,
