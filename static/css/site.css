@@ -177,9 +177,9 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(500px, 0.95fr);
+  grid-template-columns: minmax(0, 0.96fr) minmax(500px, 1.04fr);
   align-items: center;
-  gap: clamp(36px, 6vw, 96px);
+  gap: clamp(32px, 4vw, 72px);
   min-height: min(890px, calc(100svh - 44px));
   padding-block: 70px 100px;
 }
@@ -225,7 +225,7 @@ h3 {
 
 h1 {
   max-width: 720px;
-  font-size: clamp(calc(3.125rem - 2px), calc(5.1vw - 4px), calc(5.375rem - 2px));
+  font-size: clamp(calc(3.125rem - 2px - 4pt), calc(5.1vw - 4px - 4pt), calc(5.375rem - 2px - 4pt));
   line-height: 0.92;
 }
 
