@@ -1,14 +1,14 @@
 :root {
-  --ink: #102f39;
-  --ink-2: #28464d;
-  --text: #38545a;
-  --muted: #6a7c7e;
-  --faint: #93a09f;
-  --paper: #fbfaf6;
-  --canvas: #f3f0e8;
+  --ink: #000000;
+  --ink-2: #000000;
+  --text: #000000;
+  --muted: #000000;
+  --faint: #000000;
+  --paper: #ffffff;
+  --canvas: #ffffff;
   --white: #ffffff;
-  --wash: #e8efeb;
-  --wash-blue: #f3f7f8;
+  --wash: #ffffff;
+  --wash-blue: #ffffff;
   --line: #ced8d4;
   --line-dark: #aabbb7;
   --teal: #087d79;
@@ -81,8 +81,8 @@ button:focus-visible,
 }
 
 ::selection {
-  color: var(--white);
-  background: var(--teal);
+  color: var(--ink);
+  background: #d9d9d9;
 }
 
 p,
@@ -160,9 +160,7 @@ h3 {
   min-height: min(940px, 100svh);
   overflow: hidden;
   color: var(--ink-2);
-  background:
-    radial-gradient(circle at 88% 5%, rgba(122, 157, 147, 0.18), transparent 29%),
-    linear-gradient(135deg, #f8f5ee 0%, #f2efe7 58%, #e8eee9 100%);
+  background: var(--white);
   border-bottom: 1px solid var(--line);
 }
 
@@ -170,7 +168,7 @@ h3 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.24;
+  opacity: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
 }
@@ -515,7 +513,7 @@ h1 em {
   top: 0;
   z-index: 100;
   height: var(--nav-height);
-  background: rgba(251, 250, 246, 0.92);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
 }
@@ -678,7 +676,7 @@ h1 em {
 .section-summary {
   padding-top: clamp(72px, 8vw, 110px);
   padding-bottom: clamp(44px, 4vw, 64px);
-  background: linear-gradient(180deg, #f7f8f5 0%, var(--paper) 100%);
+  background: var(--white);
   border-bottom: 1px solid var(--line);
 }
 
@@ -761,6 +759,11 @@ h1 em {
 }
 
 .accelerator-figure {
+  --ink: #102f39;
+  --ink-2: #28464d;
+  --text: #38545a;
+  --muted: #6a7c7e;
+  --paper: #fbfaf6;
   overflow: hidden;
   background: #f7f6f1;
   border: 1px solid var(--line);
@@ -774,7 +777,7 @@ h1 em {
   justify-content: space-between;
   gap: 32px;
   padding: 22px 26px;
-  background: var(--paper);
+  background: var(--white);
   border-bottom: 1px solid var(--line);
 }
 
@@ -1929,7 +1932,7 @@ h1 em {
 /* Missing-data imputation */
 
 .section-imputation {
-  background: linear-gradient(180deg, #edf3f0 0%, var(--paper) 42%);
+  background: var(--white);
   border-top: 1px solid var(--line);
 }
 
@@ -1950,7 +1953,7 @@ h1 em {
   min-width: 0;
   gap: 10px;
   padding: 14px;
-  background: #eef3f0;
+  background: var(--white);
 }
 
 .imputation-panel-link {
@@ -1984,7 +1987,7 @@ h1 em {
 
 .imputation-selector {
   padding: 14px 16px;
-  background: #f7f7f3;
+  background: var(--white);
   border-bottom: 1px solid var(--line);
 }
 
@@ -2295,8 +2298,8 @@ h1 em {
 /* Footer */
 
 .site-footer {
-  color: #a8bcb8;
-  background: #0a252d;
+  color: var(--ink);
+  background: var(--white);
 }
 
 .footer-main {
@@ -2357,9 +2360,9 @@ h1 em {
   margin: auto;
   padding: 0;
   overflow: hidden;
-  color: var(--white);
-  background: #0c242b;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 25px 90px rgba(0, 0, 0, 0.46);
 }
@@ -2445,6 +2448,56 @@ h1 em {
   height: auto;
   margin-inline: auto;
   background: var(--white);
+}
+
+/* Clean monochrome page theme. The animated accelerator illustration keeps its
+   particle, beam, magnet, and telemetry colors; all readable copy stays black. */
+body * {
+  color: #000000 !important;
+}
+
+body svg text {
+  fill: #000000 !important;
+}
+
+.venue-line,
+.button,
+.button:hover,
+.button-disabled,
+.button-disabled:hover,
+.button-primary,
+.button-primary:hover,
+.hero-figure,
+.hero-figure::before,
+.research-figure figcaption,
+.figure-hover-label,
+.imputation-button-group button,
+.imputation-button-group button[aria-pressed="true"],
+.imputation-stepper button,
+.imputation-stepper button:hover,
+.skip-link {
+  background: var(--white);
+}
+
+.skip-link,
+.figure-hover-label {
+  border: 1px solid var(--ink);
+}
+
+.model-node > rect {
+  fill: var(--white);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.model-node g rect {
+  fill: var(--white);
+  stroke: var(--ink);
+}
+
+.footer-meta,
+.lightbox-toolbar {
+  border-color: var(--line);
 }
 
 /* Responsive */
